@@ -1,0 +1,108 @@
+\documentclass[a4paper]{article}
+\usepackage{geometry}
+\geometry{a4paper,left=25mm,right=25mm, top=30mm, bottom=30mm}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{lastpage}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage[section]{placeins}
+%\usepackage[]{natbib}
+\usepackage{listings}
+\lstset{language=[Objective]C}
+\usepackage{color}
+\bibliographystyle{unsrt}
+\newcommand{\HRule}{\rule{\linewidth}{0.2mm}}
+
+
+%-------definitions-----
+\newcommand{\Author}{Peter Weilnböck}
+\newcommand{\Title}{Numerical Study of astrophysical solutions in modified theory of gravity in the Palatini formalism}
+\newcommand{\Date}{17.8.2016}
+%--------------------------
+
+\normalsize
+\title{\Title}
+\author{\Author}
+\date{\Date}
+\pagestyle{fancy}
+%%% Kopfzeile linker Bereich
+%      gerade Seite   ungerade Seite
+\lhead[ \leftmark   ]{\scriptsize \Date}
+%%% Kopfzeile mittlerer Bereich
+%      gerade Seite   ungerade Seite
+\chead[]{\Title}
+%%% Kopfzeile linker Bereich
+%      gerade Seite             ungerade Seite
+\rhead[\rightmark ]{\scriptsize Weilnböck Peter}
+
+%%% Fußzeile linker Bereich
+%      gerade Seite   ungerade Seite
+\lfoot[]{}
+%%% Fußzeile mittlerer Bereich
+% bleibt in diesem Beispiel leer
+\cfoot[]{}
+%%% Fußzeile rechter Bereich
+\rfoot[]{\thepage / \pageref{LastPage}}
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center} 
+%\textsc{\large Laborübungen Fortgeschrittene Experimentiertechniken}\\%
+\textsc{\large Karl-Franzens-Universität Graz}\\[3.0cm]
+
+\textsc{\LARGE Master Thesis}\\[1.0cm]
+\HRule \\[0.5cm]
+{ \Huge \bfseries \Title}\\[0.2cm]
+\HRule \\[1.5cm]
+\emph{Author:}
+Peter Weilnböck\\[0.5cm]
+\emph{Adviser: }Dr.rer.nat. Helios Sanchis Alepuz, Univ.-Prof. Dr.rer.nat. Reinhard Alkofer
+
+\vfill
+{\LARGE Date: \Date}
+\end{center}
+\end{titlepage}
+
+\pagebreak
+
+\tableofcontents
+\pagebreak
+
+\section*{Abstract}
+$\Psi=e^{i \overrightarrow{k} \overrightarrow{r}} u\left( \overrightarrow{r }\right)$
+
+$T_{\overrightarrow{R}} f(\overrightarrow{r})=f(\overrightarrow{r}+\overrightarrow{R} $
+
+$H |\Psi> = E |\Psi> $
+
+$T_{\overrightarrow{R}}\left[ H(\overrightarrow{r})\Psi(\overrightarrow{r})\right] = H(\overrightarrow{r} + \overrightarrow{R})\Psi(\overrightarrow{r} + \overrightarrow{R})$
+
+$H(\overrightarrow{r} + \overrightarrow{R})= H(\overrightarrow{r})$
+
+$=H(\overrightarrow{r})T_{\overrightarrow{R}}\Psi(\overrightarrow{r})=E T_{\overrightarrow{R}}\Psi(\overrightarrow{r})$
+
+$\left[H , T\right] = 0$
+
+$T_{\overrightarrow{R}}\Psi(\overrightarrow{r}) =  \Psi(\overrightarrow{r} + \overrightarrow{R}) \overset{!}{=} c(\overrightarrow{R}) \Psi(\overrightarrow{r})$
+
+Vom endlichen ins unendliche:
+$\sum\limits^{k=N}_{k=1}(1)=N $
+
+$\sum\limits_k \longrightarrow c \int\limits_{-\pi/a}^{\pi/a} \emph{d}k = \dfrac{2 \pi}{a} c \overset{!}{=} N$
+
+$\Rightarrow c = \dfrac{N a}{2 \pi} = \dfrac{L}{2\pi} $ 
+
+$\Rightarrow \sum\limits_k \longrightarrow \dfrac{L}{2\pi} \int\limits_{-\pi/a}^{\pi/a} \emph{d}k$
+ 
+$\Rightarrow \sum\limits_k \longrightarrow \dfrac{V}{\left(2\pi\right)^{3}} \int\limits_{-\pi/a}^{\pi/a} \emph{d}^3k$
+ 
+\section{Ising Model}
+
+
+\nocite{*}
+\bibliography{bibfile}
+
+\end{document}

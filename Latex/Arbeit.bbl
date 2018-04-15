@@ -1,0 +1,26 @@
+\begin{thebibliography}{1}
+
+\bibitem{stat-field-theo}
+Claude Itzykson and Jean-Michael Drouffe.
+\newblock {\em Statistical Field Theory}, Volume~1.
+\newblock Cambridge University Press, 1989.
+
+\bibitem{wang-landau}
+Fugao Wang and David~P. Landau.
+\newblock Efficient, multiple-range random walk algorithm to calculate the
+  density of states.
+\newblock {\em Physical Review Letters}, 86(10):2050--2053, March 2001.
+
+\bibitem{adaptive-wang-landau}
+Luke Bornn, Pierre~E. Jacob, Pierre~Del Moral, and Arnaud Doucet.
+\newblock An adaptive interacting Wang-Landau algorithm for automatic density
+  exploration.
+\newblock {\em arXiv}, 1109(3829v3), June 2012.
+
+\bibitem{wang-landau2}
+David~P. Landau, Shan-Ho Tsai, and M.~Exler.
+\newblock A new approach to Monte Carlo simulations in statistical physics:
+  Wang-landau sampling.
+\newblock {\em American Physics Journal}, 72(10):1294--1302, October 2004.
+
+\end{thebibliography}

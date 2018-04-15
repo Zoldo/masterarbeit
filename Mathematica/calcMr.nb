@@ -1,0 +1,351 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     13170,        342]
+NotebookOptionsPosition[     12678,        321]
+NotebookOutlinePosition[     13033,        337]
+CellTagsIndexPosition[     12990,        334]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Remove", "[", "\"\<Global`*\>\"", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"eqnM", "=", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"\[CapitalOmega]R", "/", "\[CapitalOmega]"}], "+", 
+       RowBox[{"2", "/", "r"}]}], ")"}], "*", 
+     RowBox[{"Mr", "/", "r"}]}], "==", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"3", "\[Tau]rr"}], "-", 
+        RowBox[{
+         RowBox[{"\[CapitalOmega]", "/", "S"}], " ", "\[Tau]tt"}]}], ")"}], 
+      "/", "2"}], "+", 
+     RowBox[{"A", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"\[CapitalOmega]RR", "/", "\[CapitalOmega]"}], "+", 
+        RowBox[{
+         RowBox[{"\[CapitalOmega]R", "/", "\[CapitalOmega]"}], 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"2", " ", "r"}], "-", 
+              RowBox[{"3", " ", "M"}]}], ")"}], "/", 
+            RowBox[{"(", 
+             RowBox[{"r", 
+              RowBox[{"(", 
+               RowBox[{"r", "-", 
+                RowBox[{"2", "M"}]}], ")"}]}], ")"}]}], "-", 
+           RowBox[{"3", 
+            RowBox[{"\[CapitalOmega]R", "/", 
+             RowBox[{"(", 
+              RowBox[{"4", " ", "\[CapitalOmega]"}], ")"}]}]}]}], ")"}]}]}], 
+       ")"}]}]}]}], "}"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"l", "=", 
+   RowBox[{"Solve", "[", 
+    RowBox[{"eqnM", ",", "Mr"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"k", "=", 
+  RowBox[{"l", "/.", 
+   RowBox[{"M", "\[Rule]", 
+    RowBox[{"4", "*", "\[Pi]", "*", "\[Rho]", "*", 
+     RowBox[{"r", "^", "3"}]}]}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"Mr", "/.", "k"}], "\[IndentingNewLine]", 
+ RowBox[{"Limit", "[", 
+  RowBox[{
+   RowBox[{"Mr", "/.", "k"}], ",", 
+   RowBox[{"r", "\[Rule]", "0"}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"s", "=", 
+  RowBox[{"First", "[", 
+   RowBox[{"Mr", "/.", "l"}], "]"}]}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.6770574794186993`*^9, 3.677057495296637*^9}, {
+  3.677057624822928*^9, 3.6770577914135017`*^9}, {3.677057894234318*^9, 
+  3.6770579179721737`*^9}, {3.677058857740501*^9, 3.6770588627297077`*^9}, {
+  3.677059298408123*^9, 3.6770593337962093`*^9}, {3.677059551202305*^9, 
+  3.677059580669766*^9}, {3.677059618551167*^9, 3.677059626470951*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   FractionBox[
+    RowBox[{"Mr", " ", 
+     RowBox[{"(", 
+      RowBox[{
+       FractionBox["2", "r"], "+", 
+       FractionBox["\[CapitalOmega]R", "\[CapitalOmega]"]}], ")"}]}], "r"], 
+   "\[Equal]", 
+   RowBox[{
+    RowBox[{
+     FractionBox["1", "2"], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"3", " ", "\[Tau]rr"}], "-", 
+       FractionBox[
+        RowBox[{"\[Tau]tt", " ", "\[CapitalOmega]"}], "S"]}], ")"}]}], "+", 
+    RowBox[{"A", " ", 
+     RowBox[{"(", 
+      RowBox[{
+       FractionBox[
+        RowBox[{"\[CapitalOmega]R", " ", 
+         RowBox[{"(", 
+          RowBox[{
+           FractionBox[
+            RowBox[{
+             RowBox[{
+              RowBox[{"-", "3"}], " ", "M"}], "+", 
+             RowBox[{"2", " ", "r"}]}], 
+            RowBox[{"r", " ", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"-", "2"}], " ", "M"}], "+", "r"}], ")"}]}]], "-", 
+           FractionBox[
+            RowBox[{"3", " ", "\[CapitalOmega]R"}], 
+            RowBox[{"4", " ", "\[CapitalOmega]"}]]}], ")"}]}], 
+        "\[CapitalOmega]"], "+", 
+       FractionBox["\[CapitalOmega]RR", "\[CapitalOmega]"]}], ")"}]}]}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{{3.677057481601302*^9, 3.6770574959489527`*^9}, {
+   3.677057654326882*^9, 3.677057664398285*^9}, {3.677057697023649*^9, 
+   3.6770577167994823`*^9}, {3.677057762691803*^9, 3.6770577922659683`*^9}, {
+   3.6770578951976748`*^9, 3.6770579194484377`*^9}, 3.677058863616212*^9, {
+   3.6770593019376163`*^9, 3.6770593344741917`*^9}, {3.677059564290332*^9, 
+   3.677059570078142*^9}, 3.677059627275487*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{"Mr", "\[Rule]", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"r", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"-", "6"}], " ", 
+          SuperscriptBox["r", "2"], " ", "S", " ", "\[Tau]rr", " ", 
+          SuperscriptBox["\[CapitalOmega]", "2"]}], "+", 
+         RowBox[{"48", " ", "\[Pi]", " ", 
+          SuperscriptBox["r", "4"], " ", "S", " ", "\[Rho]", " ", "\[Tau]rr", 
+          " ", 
+          SuperscriptBox["\[CapitalOmega]", "2"]}], "+", 
+         RowBox[{"2", " ", 
+          SuperscriptBox["r", "2"], " ", "\[Tau]tt", " ", 
+          SuperscriptBox["\[CapitalOmega]", "3"]}], "-", 
+         RowBox[{"16", " ", "\[Pi]", " ", 
+          SuperscriptBox["r", "4"], " ", "\[Rho]", " ", "\[Tau]tt", " ", 
+          SuperscriptBox["\[CapitalOmega]", "3"]}], "-", 
+         RowBox[{
+         "8", " ", "A", " ", "r", " ", "S", " ", "\[CapitalOmega]", " ", 
+          "\[CapitalOmega]R"}], "+", 
+         RowBox[{"48", " ", "A", " ", "\[Pi]", " ", 
+          SuperscriptBox["r", "3"], " ", "S", " ", "\[Rho]", " ", 
+          "\[CapitalOmega]", " ", "\[CapitalOmega]R"}], "+", 
+         RowBox[{"3", " ", "A", " ", 
+          SuperscriptBox["r", "2"], " ", "S", " ", 
+          SuperscriptBox["\[CapitalOmega]R", "2"]}], "-", 
+         RowBox[{"24", " ", "A", " ", "\[Pi]", " ", 
+          SuperscriptBox["r", "4"], " ", "S", " ", "\[Rho]", " ", 
+          SuperscriptBox["\[CapitalOmega]R", "2"]}], "-", 
+         RowBox[{"4", " ", "A", " ", 
+          SuperscriptBox["r", "2"], " ", "S", " ", "\[CapitalOmega]", " ", 
+          "\[CapitalOmega]RR"}], "+", 
+         RowBox[{"32", " ", "A", " ", "\[Pi]", " ", 
+          SuperscriptBox["r", "4"], " ", "S", " ", "\[Rho]", " ", 
+          "\[CapitalOmega]", " ", "\[CapitalOmega]RR"}]}], ")"}]}], ")"}], 
+     "/", 
+     RowBox[{"(", 
+      RowBox[{"4", " ", "S", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", "r"}], "+", 
+         RowBox[{"8", " ", "\[Pi]", " ", 
+          SuperscriptBox["r", "3"], " ", "\[Rho]"}]}], ")"}], " ", 
+       "\[CapitalOmega]", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"2", " ", "\[CapitalOmega]"}], "+", 
+         RowBox[{"r", " ", "\[CapitalOmega]R"}]}], ")"}]}], ")"}]}]}], "}"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{{3.677057481601302*^9, 3.6770574959489527`*^9}, {
+   3.677057654326882*^9, 3.677057664398285*^9}, {3.677057697023649*^9, 
+   3.6770577167994823`*^9}, {3.677057762691803*^9, 3.6770577922659683`*^9}, {
+   3.6770578951976748`*^9, 3.6770579194484377`*^9}, 3.677058863616212*^9, {
+   3.6770593019376163`*^9, 3.6770593344741917`*^9}, {3.677059564290332*^9, 
+   3.677059570078142*^9}, 3.677059627281028*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{"r", " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "6"}], " ", 
+        SuperscriptBox["r", "2"], " ", "S", " ", "\[Tau]rr", " ", 
+        SuperscriptBox["\[CapitalOmega]", "2"]}], "+", 
+       RowBox[{"48", " ", "\[Pi]", " ", 
+        SuperscriptBox["r", "4"], " ", "S", " ", "\[Rho]", " ", "\[Tau]rr", 
+        " ", 
+        SuperscriptBox["\[CapitalOmega]", "2"]}], "+", 
+       RowBox[{"2", " ", 
+        SuperscriptBox["r", "2"], " ", "\[Tau]tt", " ", 
+        SuperscriptBox["\[CapitalOmega]", "3"]}], "-", 
+       RowBox[{"16", " ", "\[Pi]", " ", 
+        SuperscriptBox["r", "4"], " ", "\[Rho]", " ", "\[Tau]tt", " ", 
+        SuperscriptBox["\[CapitalOmega]", "3"]}], "-", 
+       RowBox[{
+       "8", " ", "A", " ", "r", " ", "S", " ", "\[CapitalOmega]", " ", 
+        "\[CapitalOmega]R"}], "+", 
+       RowBox[{"48", " ", "A", " ", "\[Pi]", " ", 
+        SuperscriptBox["r", "3"], " ", "S", " ", "\[Rho]", " ", 
+        "\[CapitalOmega]", " ", "\[CapitalOmega]R"}], "+", 
+       RowBox[{"3", " ", "A", " ", 
+        SuperscriptBox["r", "2"], " ", "S", " ", 
+        SuperscriptBox["\[CapitalOmega]R", "2"]}], "-", 
+       RowBox[{"24", " ", "A", " ", "\[Pi]", " ", 
+        SuperscriptBox["r", "4"], " ", "S", " ", "\[Rho]", " ", 
+        SuperscriptBox["\[CapitalOmega]R", "2"]}], "-", 
+       RowBox[{"4", " ", "A", " ", 
+        SuperscriptBox["r", "2"], " ", "S", " ", "\[CapitalOmega]", " ", 
+        "\[CapitalOmega]RR"}], "+", 
+       RowBox[{"32", " ", "A", " ", "\[Pi]", " ", 
+        SuperscriptBox["r", "4"], " ", "S", " ", "\[Rho]", " ", 
+        "\[CapitalOmega]", " ", "\[CapitalOmega]RR"}]}], ")"}]}], ")"}], "/", 
+   
+   RowBox[{"(", 
+    RowBox[{"4", " ", "S", " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"-", "r"}], "+", 
+       RowBox[{"8", " ", "\[Pi]", " ", 
+        SuperscriptBox["r", "3"], " ", "\[Rho]"}]}], ")"}], " ", 
+     "\[CapitalOmega]", " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"2", " ", "\[CapitalOmega]"}], "+", 
+       RowBox[{"r", " ", "\[CapitalOmega]R"}]}], ")"}]}], ")"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{{3.677057481601302*^9, 3.6770574959489527`*^9}, {
+   3.677057654326882*^9, 3.677057664398285*^9}, {3.677057697023649*^9, 
+   3.6770577167994823`*^9}, {3.677057762691803*^9, 3.6770577922659683`*^9}, {
+   3.6770578951976748`*^9, 3.6770579194484377`*^9}, 3.677058863616212*^9, {
+   3.6770593019376163`*^9, 3.6770593344741917`*^9}, {3.677059564290332*^9, 
+   3.677059570078142*^9}, 3.677059627285263*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "0", "}"}]], "Output",
+ CellChangeTimes->{{3.677057481601302*^9, 3.6770574959489527`*^9}, {
+   3.677057654326882*^9, 3.677057664398285*^9}, {3.677057697023649*^9, 
+   3.6770577167994823`*^9}, {3.677057762691803*^9, 3.6770577922659683`*^9}, {
+   3.6770578951976748`*^9, 3.6770579194484377`*^9}, 3.677058863616212*^9, {
+   3.6770593019376163`*^9, 3.6770593344741917`*^9}, {3.677059564290332*^9, 
+   3.677059570078142*^9}, 3.677059627344017*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  FractionBox["1", 
+   RowBox[{"4", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"2", " ", "M"}], "-", "r"}], ")"}], " ", "S", " ", 
+    "\[CapitalOmega]", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"2", " ", "\[CapitalOmega]"}], "+", 
+      RowBox[{"r", " ", "\[CapitalOmega]R"}]}], ")"}]}]], 
+  RowBox[{"r", " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"12", " ", "M", " ", "r", " ", "S", " ", "\[Tau]rr", " ", 
+      SuperscriptBox["\[CapitalOmega]", "2"]}], "-", 
+     RowBox[{"6", " ", 
+      SuperscriptBox["r", "2"], " ", "S", " ", "\[Tau]rr", " ", 
+      SuperscriptBox["\[CapitalOmega]", "2"]}], "-", 
+     RowBox[{"4", " ", "M", " ", "r", " ", "\[Tau]tt", " ", 
+      SuperscriptBox["\[CapitalOmega]", "3"]}], "+", 
+     RowBox[{"2", " ", 
+      SuperscriptBox["r", "2"], " ", "\[Tau]tt", " ", 
+      SuperscriptBox["\[CapitalOmega]", "3"]}], "+", 
+     RowBox[{
+     "12", " ", "A", " ", "M", " ", "S", " ", "\[CapitalOmega]", " ", 
+      "\[CapitalOmega]R"}], "-", 
+     RowBox[{
+     "8", " ", "A", " ", "r", " ", "S", " ", "\[CapitalOmega]", " ", 
+      "\[CapitalOmega]R"}], "-", 
+     RowBox[{"6", " ", "A", " ", "M", " ", "r", " ", "S", " ", 
+      SuperscriptBox["\[CapitalOmega]R", "2"]}], "+", 
+     RowBox[{"3", " ", "A", " ", 
+      SuperscriptBox["r", "2"], " ", "S", " ", 
+      SuperscriptBox["\[CapitalOmega]R", "2"]}], "+", 
+     RowBox[{
+     "8", " ", "A", " ", "M", " ", "r", " ", "S", " ", "\[CapitalOmega]", " ",
+       "\[CapitalOmega]RR"}], "-", 
+     RowBox[{"4", " ", "A", " ", 
+      SuperscriptBox["r", "2"], " ", "S", " ", "\[CapitalOmega]", " ", 
+      "\[CapitalOmega]RR"}]}], ")"}]}]}]], "Output",
+ CellChangeTimes->{{3.677057481601302*^9, 3.6770574959489527`*^9}, {
+   3.677057654326882*^9, 3.677057664398285*^9}, {3.677057697023649*^9, 
+   3.6770577167994823`*^9}, {3.677057762691803*^9, 3.6770577922659683`*^9}, {
+   3.6770578951976748`*^9, 3.6770579194484377`*^9}, 3.677058863616212*^9, {
+   3.6770593019376163`*^9, 3.6770593344741917`*^9}, {3.677059564290332*^9, 
+   3.677059570078142*^9}, 3.677059627347584*^9}]
+}, Open  ]]
+},
+WindowSize->{808, 755},
+WindowMargins->{{4, Automatic}, {Automatic, 4}},
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (December 4, \
+2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 2488, 68, 199, "Input"],
+Cell[3071, 92, 1670, 46, 103, "Output"],
+Cell[4744, 140, 2745, 60, 101, "Output"],
+Cell[7492, 202, 2591, 58, 77, "Output"],
+Cell[10086, 262, 470, 7, 28, "Output"],
+Cell[10559, 271, 2103, 47, 95, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

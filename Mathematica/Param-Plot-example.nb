@@ -1,0 +1,2654 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[    137186,       2645]
+NotebookOptionsPosition[    135209,       2590]
+NotebookOutlinePosition[    135564,       2606]
+CellTagsIndexPosition[    135521,       2603]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Remove", "[", "\"\<Global`*\>\"", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"$Path", ",", "\"\<//users//peterweilnboeck//mathematica//\>\""}], 
+   "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Get", "[", "\"\<CustomTicks`\>\"", "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"eqnA", ":=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"a", "''"}], "[", "x", "]"}], "+", 
+      RowBox[{"a", "[", "x", "]"}]}], "\[Equal]", 
+     RowBox[{"b", "*", 
+      RowBox[{"Sin", "[", 
+       RowBox[{"a", "[", "x", "]"}], "]"}]}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"condA", ":=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"a", "[", "0", "]"}], "\[Equal]", 
+     RowBox[{
+      RowBox[{"a", "'"}], "[", "0", "]"}], "\[Equal]", "1"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"stopCond", ":=", 
+  RowBox[{"{", 
+   RowBox[{"WhenEvent", "[", 
+    RowBox[{
+     RowBox[{"Evaluate", "[", 
+      RowBox[{
+       RowBox[{"Re", "[", 
+        RowBox[{"a", "[", "x", "]"}], "]"}], "\[LessEqual]", "0"}], "]"}], 
+     ",", 
+     RowBox[{
+      RowBox[{"xMax", "=", "x"}], ";", "\"\<StopIntegration\>\""}]}], "]"}], 
+   "}"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"system", ":=", 
+   RowBox[{"Join", "[", 
+    RowBox[{"eqnA", ",", "condA", ",", "stopCond"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"sol", " ", "=", " ", 
+  RowBox[{"ParametricNDSolve", "[", 
+   RowBox[{"system", ",", " ", "a", ",", " ", 
+    RowBox[{"{", 
+     RowBox[{"x", ",", " ", "0", ",", " ", "\[Infinity]"}], "}"}], ",", 
+    RowBox[{"{", "b", "}"}]}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ParametricPlot", "[", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"Flatten", "@", 
+      RowBox[{"Last", "@", 
+       RowBox[{"Transpose", "[", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"a", "[", "b", "]"}], "/.", "sol"}], ")"}], "[", 
+         RowBox[{"{", 
+          RowBox[{"\"\<Grid\>\"", ",", "\"\<ValuesOnGrid\>\""}], "}"}], "]"}],
+         "]"}]}]}], ")"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"b", ",", ".8", ",", "2"}], "}"}], ",", 
+    RowBox[{"PlotRange", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"Automatic", ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "1"}], ",", "1"}], "}"}]}], "}"}]}], ",", 
+    RowBox[{"AxesOrigin", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"Automatic", ",", 
+       RowBox[{"-", "1"}]}], "}"}]}], ",", 
+    RowBox[{"AspectRatio", "\[Rule]", 
+     RowBox[{"1", "/", "GoldenRatio"}]}], ",", 
+    RowBox[{"Ticks", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"LogTicks", ",", "LinTicks"}], "}"}]}], ",", 
+    RowBox[{"Axes", "\[Rule]", "True"}], ",", 
+    RowBox[{"Frame", "\[Rule]", "False"}]}], "]"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ParametricPlot", "[", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"Flatten", "@", 
+      RowBox[{"Last", "@", 
+       RowBox[{"Transpose", "[", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"a", "[", "b", "]"}], "/.", "sol"}], ")"}], "[", 
+         RowBox[{"{", 
+          RowBox[{"\"\<Grid\>\"", ",", "\"\<ValuesOnGrid\>\""}], "}"}], "]"}],
+         "]"}]}]}], ")"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"b", ",", ".8", ",", "2"}], "}"}], ",", 
+    RowBox[{"PlotRange", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"Automatic", ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "1"}], ",", "1"}], "}"}]}], "}"}]}], ",", 
+    RowBox[{"AxesOrigin", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"Automatic", ",", 
+       RowBox[{"-", "1"}]}], "}"}]}], ",", 
+    RowBox[{"AspectRatio", "\[Rule]", 
+     RowBox[{"1", "/", "GoldenRatio"}]}]}], "]"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{"\"\<xMax=\>\"", ",", "xMax", ",", "\"\<\>\""}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"ParametricPlot", "[", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{"Flatten", "@", 
+     RowBox[{"Last", "@", 
+      RowBox[{"Transpose", "[", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"a", "[", "b", "]"}], "/.", "sol"}], ")"}], "[", 
+        RowBox[{"{", 
+         RowBox[{"\"\<Grid\>\"", ",", "\"\<ValuesOnGrid\>\""}], "}"}], "]"}], 
+       "]"}]}]}], ")"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"b", ",", ".8", ",", "1.2"}], "}"}], ",", 
+   RowBox[{"PlotRange", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"Automatic", ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "1"}], ",", "1"}], "}"}]}], "}"}]}], ",", 
+   RowBox[{"AxesOrigin", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"Automatic", ",", 
+      RowBox[{"-", "1"}]}], "}"}]}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{"Evaluate", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"a", "[", "1", "]"}], "[", "x", "]"}], "/.", "sol"}], "]"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "0", ",", "xMax"}], "}"}], ",", 
+   RowBox[{"PlotRange", "\[Rule]", "All"}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{"Evaluate", "@", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"a", "[", "b", "]"}], "[", "x", "]"}], "/.", "sol"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"b", ",", ".8", ",", "1.2"}], "}"}]}], "]"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "0", ",", "xMax"}], "}"}], ",", 
+   RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
+   RowBox[{"AspectRatio", "\[Rule]", 
+    RowBox[{"1", "/", "GoldenRatio"}]}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"a", "[", ".8", "]"}], "/.", "sol"}], ")"}], "[", 
+   "\"\<Domain\>\"", "]"}], "[", 
+  RowBox[{"[", 
+   RowBox[{"1", ",", "2"}], "]"}], "]"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.672478196937532*^9, 3.672478666129299*^9}, {
+   3.672478697498103*^9, 3.6724789851784554`*^9}, {3.672479056122136*^9, 
+   3.672479109830881*^9}, {3.672479167076642*^9, 3.6724792235724688`*^9}, {
+   3.672479255958198*^9, 3.672479407479237*^9}, {3.672479496472435*^9, 
+   3.672479578931209*^9}, {3.672479610717656*^9, 3.672479712037239*^9}, {
+   3.6724798790691433`*^9, 3.6724799209020433`*^9}, {3.672479977245557*^9, 
+   3.672480004144376*^9}, {3.672621929360231*^9, 3.672622056034554*^9}, {
+   3.67262209158035*^9, 3.672622098537582*^9}, {3.672622148490924*^9, 
+   3.672622336127553*^9}, {3.672622435062107*^9, 3.672622437580995*^9}, {
+   3.672622503351211*^9, 3.672622613807949*^9}, {3.672622665621645*^9, 
+   3.672622718518168*^9}, {3.672622796553926*^9, 3.672623021851218*^9}, {
+   3.672623115092289*^9, 3.6726231249935513`*^9}, {3.672623160320265*^9, 
+   3.672623180119574*^9}, {3.672623295144507*^9, 3.6726233015316057`*^9}, {
+   3.672749080110523*^9, 3.6727492947417717`*^9}, {3.6727494220214157`*^9, 
+   3.6727494225592947`*^9}, {3.67323838852282*^9, 3.673238418277313*^9}, {
+   3.67323862383757*^9, 3.673238682834552*^9}, {3.673238728194007*^9, 
+   3.673238773077098*^9}, 3.673238808286764*^9, {3.673238849324094*^9, 
+   3.673238873379136*^9}, {3.673242560975121*^9, 3.6732425807570047`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  TemplateBox[{RowBox[{
+      StyleBox[
+       TagBox["ParametricFunction", "SummaryHead"], 
+       "NonInterpretableSummary"], 
+      StyleBox["[", "NonInterpretableSummary"], 
+      DynamicModuleBox[{Typeset`open$$ = False}, 
+       PanelBox[
+        PaneSelectorBox[{False -> GridBox[{{
+              PaneBox[
+               ButtonBox[
+                DynamicBox[
+                 FEPrivate`FrontEndResource[
+                 "FEBitmaps", "SquarePlusIconMedium"]], 
+                ButtonFunction :> (Typeset`open$$ = True), Appearance -> None,
+                 Evaluator -> Automatic, Method -> "Preemptive"], 
+               Alignment -> {Center, Center}, ImageSize -> 
+               Dynamic[{
+                 Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                  AbsoluteCurrentValue[Magnification]}]], 
+              GraphicsBox[{{}, {}, {
+                 GrayLevel[0.55], 
+                 AbsoluteThickness[1.5], 
+                 Opacity[1.], 
+                 
+                 LineBox[{{9.09090909090909*^-8, 9.090909090884856*^-8}, {
+                  0.0874367476365131, 0.08197166587636243}, {
+                  0.18222810297558026`, 0.1358255024317191}, {
+                  0.27073779576926765`, 0.13315455086535802`}, {
+                  0.3575112797365835, 0.08143316377978886}, {
+                  0.4516394623155443, -0.007347854733426912}, {
+                  0.5394859823491253, -0.08816932746972758}, {
+                  0.6346872009943513, -0.13787329990112937`}, {
+                  0.7281522108132057, -0.12816574147938434`}, {
+                  0.8153355580866803, -0.07001063326902106}, {0.9098736039718,
+                   0.02121659675083076}, {0.9999999090909091, 
+                  0.10024804094746914`}}]}, {
+                 GrayLevel[0.55], 
+                 AbsoluteThickness[1.5], 
+                 Opacity[1.], 
+                 
+                 LineBox[{{9.09090909090909*^-8, 9.090909090880112*^-8}, {
+                  0.0874367476365131, 0.08090369567458766}, {
+                  0.18222810297558026`, 0.12746559200130417`}, {
+                  0.27073779576926765`, 0.1116266937044405}, {
+                  0.3575112797365835, 0.046963725126600256`}, {
+                  0.4516394623155443, -0.04509050859182233}, {
+                  0.5394859823491253, -0.11115559892361665`}, {
+                  0.6346872009943513, -0.12642564594664163`}, {
+                  0.7281522108132057, -0.07740196037964171}, {
+                  0.8153355580866803, 0.004179083230780074}, {0.9098736039718,
+                   0.08937493944143977}, {0.9999999090909091, 
+                  0.12834702174618903`}}]}, {
+                 GrayLevel[0.55], 
+                 AbsoluteThickness[1.5], 
+                 Opacity[1.], 
+                 
+                 LineBox[{{9.09090909090909*^-8, 9.090909090875369*^-8}, {
+                  0.0874367476365131, 0.07984396759533968}, {
+                  0.18222810297558026`, 0.11939549826670079`}, {
+                  0.27073779576926765`, 0.09184904274707059}, {
+                  0.3575112797365835, 0.017913117173780694`}, {
+                  0.4516394623155443, -0.07109962300031061}, {
+                  0.5394859823491253, -0.11717052830989395`}, {
+                  0.6346872009943513, -0.09879571259704382}, {
+                  0.7281522108132057, -0.022693471356141894`}, {
+                  0.8153355580866803, 0.06128703302641453}, {0.9098736039718, 
+                  0.11605625481609519`}, {0.9999999090909091, 
+                  0.10415981267620744`}}]}, {
+                 GrayLevel[0.55], 
+                 AbsoluteThickness[1.5], 
+                 Opacity[1.], 
+                 
+                 LineBox[{{9.09090909090909*^-8, 9.090909090870287*^-8}, {
+                  0.0874367476365131, 0.07879243663407876}, {
+                  0.18222810297558026`, 0.1116081822210312}, {
+                  0.27073779576926765`, 0.07372482040530459}, {
+                  0.3575112797365835, -0.006267252216927747}, {
+                  0.4516394623155443, -0.08743897872291118}, {
+                  0.5394859823491253, -0.11109134853087661`}, {
+                  0.6346872009943513, -0.06371549528296311}, {
+                  0.7281522108132057, 0.02544576624054603}, {
+                  0.8153355580866803, 0.09464282937855747}, {0.9098736039718, 
+                  0.10731931496853601`}, {0.9999999090909091, 
+                  0.0516787429232188}}]}, {
+                 GrayLevel[0.55], 
+                 AbsoluteThickness[1.5], 
+                 Opacity[1.], 
+                 
+                 LineBox[{{9.09090909090909*^-8, 9.090909090865543*^-8}, {
+                  0.0874367476365131, 0.07774905743802465}, {
+                  0.18222810297558026`, 0.10409673959866513`}, {
+                  0.27073779576926765`, 0.05716133039337165}, {
+                  0.3575112797365835, -0.026084496726167965`}, {
+                  0.4516394623155443, -0.09591154799603378}, {
+                  0.5394859823491253, -0.09685594593277226}, {
+                  0.6346872009943513, -0.02730376120671303}, {
+                  0.7281522108132057, 0.061646715198529656`}, {
+                  0.8153355580866803, 0.1046634148537508}, {0.9098736039718, 
+                  0.07509702498429204}, {
+                  0.9999999090909091, -0.006536873471333553}}]}, {
+                 GrayLevel[0.55], 
+                 AbsoluteThickness[1.5], 
+                 Opacity[1.], 
+                 
+                 LineBox[{{9.09090909090909*^-8, 9.0909090908608*^-8}, {
+                  0.0874367476365131, 0.07671378556951527}, {
+                  0.18222810297558026`, 0.09685439581479163}, {
+                  0.27073779576926765`, 0.042069810325321415`}, {
+                  0.3575112797365835, -0.042006785469922474`}, {
+                  0.4516394623155443, -0.09808544986431629}, {
+                  0.5394859823491253, -0.07760167026270944}, {
+                  0.6346872009943513, 0.0063643674428021085`}, {
+                  0.7281522108132057, 0.08405712128907425}, {
+                  0.8153355580866803, 0.09555213349985489}, {0.9098736039718, 
+                  0.03202960165577907}, {
+                  0.9999999090909091, -0.054402034659985464`}}]}}, 
+               AspectRatio -> 1, Axes -> {False, False}, 
+               AxesLabel -> {None, None}, AxesOrigin -> {0, 0}, Background -> 
+               GrayLevel[0.93], BaseStyle -> {FontFamily -> "Arial"}, 
+               DisplayFunction -> Identity, 
+               Frame -> {{True, True}, {True, True}}, 
+               FrameLabel -> {{None, None}, {None, None}}, FrameStyle -> 
+               Directive[
+                 Thickness[Tiny], 
+                 GrayLevel[0.7]], FrameTicks -> {{None, None}, {None, None}}, 
+               GridLines -> {None, None}, GridLinesStyle -> Directive[
+                 GrayLevel[0.5, 0.4]], ImageSize -> {Automatic, 
+                 Dynamic[
+                 3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                   Magnification])]}, LabelStyle -> {FontFamily -> "Arial"}, 
+               Method -> {"ScalingFunctions" -> None}, 
+               PlotRange -> {All, All}, PlotRangeClipping -> True, 
+               PlotRangePadding -> {Automatic, Automatic}, 
+               Ticks -> {Automatic, Automatic}], 
+              GridBox[{{
+                 RowBox[{
+                   TagBox["\"Expression: \"", "SummaryItemAnnotation"], 
+                   "\[InvisibleSpace]", 
+                   TagBox[
+                    TagBox["a", HoldForm], "SummaryItem"]}]}, {
+                 RowBox[{
+                   TagBox["\"Parameters: \"", "SummaryItemAnnotation"], 
+                   "\[InvisibleSpace]", 
+                   TagBox[
+                    RowBox[{"{", "b", "}"}], "SummaryItem"]}]}}, 
+               GridBoxAlignment -> {
+                "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+               False, GridBoxItemSize -> {
+                "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+               GridBoxSpacings -> {
+                "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
+               BaseStyle -> {
+                ShowStringCharacters -> False, NumberMarks -> False, 
+                 PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+            GridBoxAlignment -> {"Rows" -> {{Top}}}, AutoDelete -> False, 
+            GridBoxItemSize -> {
+             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+            BaselinePosition -> {1, 1}], True -> GridBox[{{
+              PaneBox[
+               ButtonBox[
+                DynamicBox[
+                 FEPrivate`FrontEndResource[
+                 "FEBitmaps", "SquareMinusIconMedium"]], 
+                ButtonFunction :> (Typeset`open$$ = False), Appearance -> 
+                None, Evaluator -> Automatic, Method -> "Preemptive"], 
+               Alignment -> {Center, Center}, ImageSize -> 
+               Dynamic[{
+                 Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                  AbsoluteCurrentValue[Magnification]}]], 
+              GraphicsBox[{{}, {}, {
+                 GrayLevel[0.55], 
+                 AbsoluteThickness[1.5], 
+                 Opacity[1.], 
+                 
+                 LineBox[{{9.09090909090909*^-8, 9.090909090884856*^-8}, {
+                  0.0874367476365131, 0.08197166587636243}, {
+                  0.18222810297558026`, 0.1358255024317191}, {
+                  0.27073779576926765`, 0.13315455086535802`}, {
+                  0.3575112797365835, 0.08143316377978886}, {
+                  0.4516394623155443, -0.007347854733426912}, {
+                  0.5394859823491253, -0.08816932746972758}, {
+                  0.6346872009943513, -0.13787329990112937`}, {
+                  0.7281522108132057, -0.12816574147938434`}, {
+                  0.8153355580866803, -0.07001063326902106}, {0.9098736039718,
+                   0.02121659675083076}, {0.9999999090909091, 
+                  0.10024804094746914`}}]}, {
+                 GrayLevel[0.55], 
+                 AbsoluteThickness[1.5], 
+                 Opacity[1.], 
+                 
+                 LineBox[{{9.09090909090909*^-8, 9.090909090880112*^-8}, {
+                  0.0874367476365131, 0.08090369567458766}, {
+                  0.18222810297558026`, 0.12746559200130417`}, {
+                  0.27073779576926765`, 0.1116266937044405}, {
+                  0.3575112797365835, 0.046963725126600256`}, {
+                  0.4516394623155443, -0.04509050859182233}, {
+                  0.5394859823491253, -0.11115559892361665`}, {
+                  0.6346872009943513, -0.12642564594664163`}, {
+                  0.7281522108132057, -0.07740196037964171}, {
+                  0.8153355580866803, 0.004179083230780074}, {0.9098736039718,
+                   0.08937493944143977}, {0.9999999090909091, 
+                  0.12834702174618903`}}]}, {
+                 GrayLevel[0.55], 
+                 AbsoluteThickness[1.5], 
+                 Opacity[1.], 
+                 
+                 LineBox[{{9.09090909090909*^-8, 9.090909090875369*^-8}, {
+                  0.0874367476365131, 0.07984396759533968}, {
+                  0.18222810297558026`, 0.11939549826670079`}, {
+                  0.27073779576926765`, 0.09184904274707059}, {
+                  0.3575112797365835, 0.017913117173780694`}, {
+                  0.4516394623155443, -0.07109962300031061}, {
+                  0.5394859823491253, -0.11717052830989395`}, {
+                  0.6346872009943513, -0.09879571259704382}, {
+                  0.7281522108132057, -0.022693471356141894`}, {
+                  0.8153355580866803, 0.06128703302641453}, {0.9098736039718, 
+                  0.11605625481609519`}, {0.9999999090909091, 
+                  0.10415981267620744`}}]}, {
+                 GrayLevel[0.55], 
+                 AbsoluteThickness[1.5], 
+                 Opacity[1.], 
+                 
+                 LineBox[{{9.09090909090909*^-8, 9.090909090870287*^-8}, {
+                  0.0874367476365131, 0.07879243663407876}, {
+                  0.18222810297558026`, 0.1116081822210312}, {
+                  0.27073779576926765`, 0.07372482040530459}, {
+                  0.3575112797365835, -0.006267252216927747}, {
+                  0.4516394623155443, -0.08743897872291118}, {
+                  0.5394859823491253, -0.11109134853087661`}, {
+                  0.6346872009943513, -0.06371549528296311}, {
+                  0.7281522108132057, 0.02544576624054603}, {
+                  0.8153355580866803, 0.09464282937855747}, {0.9098736039718, 
+                  0.10731931496853601`}, {0.9999999090909091, 
+                  0.0516787429232188}}]}, {
+                 GrayLevel[0.55], 
+                 AbsoluteThickness[1.5], 
+                 Opacity[1.], 
+                 
+                 LineBox[{{9.09090909090909*^-8, 9.090909090865543*^-8}, {
+                  0.0874367476365131, 0.07774905743802465}, {
+                  0.18222810297558026`, 0.10409673959866513`}, {
+                  0.27073779576926765`, 0.05716133039337165}, {
+                  0.3575112797365835, -0.026084496726167965`}, {
+                  0.4516394623155443, -0.09591154799603378}, {
+                  0.5394859823491253, -0.09685594593277226}, {
+                  0.6346872009943513, -0.02730376120671303}, {
+                  0.7281522108132057, 0.061646715198529656`}, {
+                  0.8153355580866803, 0.1046634148537508}, {0.9098736039718, 
+                  0.07509702498429204}, {
+                  0.9999999090909091, -0.006536873471333553}}]}, {
+                 GrayLevel[0.55], 
+                 AbsoluteThickness[1.5], 
+                 Opacity[1.], 
+                 
+                 LineBox[{{9.09090909090909*^-8, 9.0909090908608*^-8}, {
+                  0.0874367476365131, 0.07671378556951527}, {
+                  0.18222810297558026`, 0.09685439581479163}, {
+                  0.27073779576926765`, 0.042069810325321415`}, {
+                  0.3575112797365835, -0.042006785469922474`}, {
+                  0.4516394623155443, -0.09808544986431629}, {
+                  0.5394859823491253, -0.07760167026270944}, {
+                  0.6346872009943513, 0.0063643674428021085`}, {
+                  0.7281522108132057, 0.08405712128907425}, {
+                  0.8153355580866803, 0.09555213349985489}, {0.9098736039718, 
+                  0.03202960165577907}, {
+                  0.9999999090909091, -0.054402034659985464`}}]}}, 
+               AspectRatio -> 1, Axes -> {False, False}, 
+               AxesLabel -> {None, None}, AxesOrigin -> {0, 0}, Background -> 
+               GrayLevel[0.93], BaseStyle -> {FontFamily -> "Arial"}, 
+               DisplayFunction -> Identity, 
+               Frame -> {{True, True}, {True, True}}, 
+               FrameLabel -> {{None, None}, {None, None}}, FrameStyle -> 
+               Directive[
+                 Thickness[Tiny], 
+                 GrayLevel[0.7]], FrameTicks -> {{None, None}, {None, None}}, 
+               GridLines -> {None, None}, GridLinesStyle -> Directive[
+                 GrayLevel[0.5, 0.4]], ImageSize -> {Automatic, 
+                 Dynamic[
+                 3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                   Magnification])]}, LabelStyle -> {FontFamily -> "Arial"}, 
+               Method -> {"ScalingFunctions" -> None}, 
+               PlotRange -> {All, All}, PlotRangeClipping -> True, 
+               PlotRangePadding -> {Automatic, Automatic}, 
+               Ticks -> {Automatic, Automatic}], 
+              GridBox[{{
+                 RowBox[{
+                   TagBox["\"Expression: \"", "SummaryItemAnnotation"], 
+                   "\[InvisibleSpace]", 
+                   TagBox[
+                    TagBox["a", HoldForm], "SummaryItem"]}]}, {
+                 RowBox[{
+                   TagBox["\"Parameters: \"", "SummaryItemAnnotation"], 
+                   "\[InvisibleSpace]", 
+                   TagBox[
+                    RowBox[{"{", "b", "}"}], "SummaryItem"]}]}, {
+                 RowBox[{
+                   TagBox["\"Generator: \"", "SummaryItemAnnotation"], 
+                   "\[InvisibleSpace]", 
+                   TagBox["ParametricNDSolveValue", "SummaryItem"]}]}, {
+                 RowBox[{
+                   TagBox[
+                   "\"Dependent variables: \"", "SummaryItemAnnotation"], 
+                   "\[InvisibleSpace]", 
+                   TagBox[
+                    RowBox[{"{", "a", "}"}], "SummaryItem"]}]}, {
+                 RowBox[{
+                   TagBox[
+                   "\"Independent variables: \"", "SummaryItemAnnotation"], 
+                   "\[InvisibleSpace]", 
+                   TagBox[
+                    RowBox[{"{", "x", "}"}], "SummaryItem"]}]}}, 
+               GridBoxAlignment -> {
+                "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+               False, 
+               GridBoxItemSize -> {
+                "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+               GridBoxSpacings -> {
+                "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
+               BaseStyle -> {
+                ShowStringCharacters -> False, NumberMarks -> False, 
+                 PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+            GridBoxAlignment -> {"Rows" -> {{Top}}}, AutoDelete -> False, 
+            GridBoxItemSize -> {
+             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+            BaselinePosition -> {1, 1}]}, 
+         Dynamic[Typeset`open$$], ImageSize -> Automatic], BaselinePosition -> 
+        Baseline], DynamicModuleValues :> {}], 
+      StyleBox["]", "NonInterpretableSummary"]}]},
+   "CopyTag",
+   DisplayFunction->(#& ),
+   InterpretationFunction->("ParametricFunction[<>]"& )],
+  False,
+  Editable->False,
+  SelectWithContents->True,
+  Selectable->False]], "Output",
+ CellChangeTimes->{
+  3.672478564566228*^9, {3.672478606147231*^9, 3.672478667166451*^9}, {
+   3.672478698902519*^9, 3.6724787180995617`*^9}, {3.672478753884426*^9, 
+   3.672478809867818*^9}, {3.672478851327107*^9, 3.672478899675633*^9}, {
+   3.672478977864554*^9, 3.672478985759664*^9}, {3.672479071723324*^9, 
+   3.67247911053302*^9}, {3.672479177735003*^9, 3.672479224271299*^9}, 
+   3.672479256880721*^9, 3.672479290997961*^9, {3.6724793624814243`*^9, 
+   3.6724794086565104`*^9}, 3.6724794518374453`*^9, {3.672479497512567*^9, 
+   3.672479524567082*^9}, {3.672479555578006*^9, 3.672479579714039*^9}, 
+   3.6724796112782993`*^9, {3.672479674655038*^9, 3.672479712521124*^9}, {
+   3.672479901520952*^9, 3.672479922533019*^9}, {3.672479982683342*^9, 
+   3.67248000462409*^9}, 3.6726219347851667`*^9, {3.672621966787816*^9, 
+   3.672621988243335*^9}, {3.6726221594322233`*^9, 3.672622215552055*^9}, {
+   3.672622260012422*^9, 3.6726222880628357`*^9}, {3.672622319307005*^9, 
+   3.672622336763384*^9}, 3.672622438399438*^9, {3.67262250728518*^9, 
+   3.672622561625935*^9}, {3.672622594306779*^9, 3.6726226145390663`*^9}, 
+   3.672622719250169*^9, {3.6726227994940023`*^9, 3.672622832335937*^9}, {
+   3.672622869294305*^9, 3.672622889465013*^9}, {3.672622953720305*^9, 
+   3.672622992701989*^9}, 3.6726230229008303`*^9, 3.6726231258227863`*^9, {
+   3.6726231664030447`*^9, 3.6726231809236603`*^9}, {3.672749084742538*^9, 
+   3.6727491065032167`*^9}, {3.672749241633967*^9, 3.672749296647374*^9}, 
+   3.672749423568376*^9, {3.673238399565144*^9, 3.67323841906352*^9}, {
+   3.673238667134557*^9, 3.673238683661776*^9}, {3.673238750579372*^9, 
+   3.673238760110751*^9}, 3.6732388549171867`*^9, 3.6732424278438683`*^9, 
+   3.673242562397697*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"ReplaceAll", "::", "reps"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\({\\*TagBox[\\(ParametricFunction[\\(\\(1, \
+\\(\\(Internal`Bag[\\(\\(\\*StyleBox[\\\"\\\\\\\"<\\\\\\\"\\\", \
+Rule[ShowStringCharacters, False]] \[InvisibleSpace] 1 \[InvisibleSpace] \
+\\*StyleBox[\\\"\\\\\\\">\\\\\\\"\\\", Rule[ShowStringCharacters, \
+False]]\\)\\)]\\)\\), 0, 1, \\(\\({\\(\\({b$114816}\\)\\), \
+\\(\\(System`Utilities`HashTable[\\(\\(\\*StyleBox[\\\"\\\\\\\"<\\\\\\\"\\\", \
+Rule[ShowStringCharacters, False]] \[InvisibleSpace] 2 \[InvisibleSpace] \
+\\*StyleBox[\\\"\\\\\\\">\\\\\\\"\\\", Rule[ShowStringCharacters, \
+False]]\\)\\)]\\)\\), \\(\\({}\\)\\), \\(\\({}\\)\\), \\(\\({1}\\)\\), \
+\\(\\({Automatic, 0, 0}\\)\\)}\\)\\), \\(\\({NDSolve`base$114823, \
+\\(\\(NDSolve`NDSolveParametricFunction[\\(\\(0, \
+\\(\\({ParametricNDSolveValue, \
+\\(\\(Internal`Bag[\\(\\(\\*StyleBox[\\\"\\\\\\\"<\\\\\\\"\\\", \
+Rule[ShowStringCharacters, False]] \[InvisibleSpace] 2 \[InvisibleSpace] \
+\\*StyleBox[\\\"\\\\\\\">\\\\\\\"\\\", Rule[ShowStringCharacters, \
+False]]\\)\\)]\\)\\), None}\\)\\), \\(\\(\[LeftSkeleton] 6 \
+\[RightSkeleton]\\)\\), \\(\\({}\\)\\), All\\)\\)]\\)\\)}\\)\\)\\)\\)]\\), \
+False, Rule[Editable, False], Rule[SelectWithContents, True]]}\\)\[NoBreak] \
+is neither a list of replacement rules nor a valid dispatch table, and so \
+cannot be used for replacing. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/ReplaceAll/reps\\\", ButtonNote -> \
+\\\"ReplaceAll::reps\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6732425624609413`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"ReplaceAll", "::", "argx"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\(ReplaceAll\\)\[NoBreak] called with \
+\[NoBreak]\\!\\(2\\)\[NoBreak] arguments; 1 argument is expected. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/argx\\\", \
+ButtonNote -> \\\"ReplaceAll::argx\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.673242562505007*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"ReplaceAll", "::", "reps"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\({\\*TagBox[\\(ParametricFunction[\\(\\(1, \
+\\(\\(Internal`Bag[\\(\\(\\*StyleBox[\\\"\\\\\\\"<\\\\\\\"\\\", \
+Rule[ShowStringCharacters, False]] \[InvisibleSpace] 1 \[InvisibleSpace] \
+\\*StyleBox[\\\"\\\\\\\">\\\\\\\"\\\", Rule[ShowStringCharacters, \
+False]]\\)\\)]\\)\\), 0, 1, \\(\\({\\(\\({b$114816}\\)\\), \
+\\(\\(System`Utilities`HashTable[\\(\\(\\*StyleBox[\\\"\\\\\\\"<\\\\\\\"\\\", \
+Rule[ShowStringCharacters, False]] \[InvisibleSpace] 2 \[InvisibleSpace] \
+\\*StyleBox[\\\"\\\\\\\">\\\\\\\"\\\", Rule[ShowStringCharacters, \
+False]]\\)\\)]\\)\\), \\(\\({}\\)\\), \\(\\({}\\)\\), \\(\\({1}\\)\\), \
+\\(\\({Automatic, 0, 0}\\)\\)}\\)\\), \\(\\({NDSolve`base$114823, \
+\\(\\(NDSolve`NDSolveParametricFunction[\\(\\(0, \
+\\(\\({ParametricNDSolveValue, \
+\\(\\(Internal`Bag[\\(\\(\\*StyleBox[\\\"\\\\\\\"<\\\\\\\"\\\", \
+Rule[ShowStringCharacters, False]] \[InvisibleSpace] 2 \[InvisibleSpace] \
+\\*StyleBox[\\\"\\\\\\\">\\\\\\\"\\\", Rule[ShowStringCharacters, \
+False]]\\)\\)]\\)\\), None}\\)\\), \\(\\(\[LeftSkeleton] 6 \
+\[RightSkeleton]\\)\\), \\(\\({}\\)\\), All\\)\\)]\\)\\)}\\)\\)\\)\\)]\\), \
+False, Rule[Editable, False], Rule[SelectWithContents, True]]}\\)\[NoBreak] \
+is neither a list of replacement rules nor a valid dispatch table, and so \
+cannot be used for replacing. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/ReplaceAll/reps\\\", ButtonNote -> \
+\\\"ReplaceAll::reps\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.673242562529687*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"ReplaceAll", "::", "argx"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\(ReplaceAll\\)\[NoBreak] called with \
+\[NoBreak]\\!\\(2\\)\[NoBreak] arguments; 1 argument is expected. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/argx\\\", \
+ButtonNote -> \\\"ReplaceAll::argx\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.673242562567671*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"ReplaceAll", "::", "reps"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\({\\*TagBox[\\(ParametricFunction[\\(\\(1, \
+\\(\\(Internal`Bag[\\(\\(\\*StyleBox[\\\"\\\\\\\"<\\\\\\\"\\\", \
+Rule[ShowStringCharacters, False]] \[InvisibleSpace] 1 \[InvisibleSpace] \
+\\*StyleBox[\\\"\\\\\\\">\\\\\\\"\\\", Rule[ShowStringCharacters, \
+False]]\\)\\)]\\)\\), 0, 1, \\(\\({\\(\\({b$114816}\\)\\), \
+\\(\\(System`Utilities`HashTable[\\(\\(\\*StyleBox[\\\"\\\\\\\"<\\\\\\\"\\\", \
+Rule[ShowStringCharacters, False]] \[InvisibleSpace] 2 \[InvisibleSpace] \
+\\*StyleBox[\\\"\\\\\\\">\\\\\\\"\\\", Rule[ShowStringCharacters, \
+False]]\\)\\)]\\)\\), \\(\\({}\\)\\), \\(\\({}\\)\\), \\(\\({1}\\)\\), \
+\\(\\({Automatic, 0, 0}\\)\\)}\\)\\), \\(\\({NDSolve`base$114823, \
+\\(\\(NDSolve`NDSolveParametricFunction[\\(\\(0, \
+\\(\\({ParametricNDSolveValue, \
+\\(\\(Internal`Bag[\\(\\(\\*StyleBox[\\\"\\\\\\\"<\\\\\\\"\\\", \
+Rule[ShowStringCharacters, False]] \[InvisibleSpace] 2 \[InvisibleSpace] \
+\\*StyleBox[\\\"\\\\\\\">\\\\\\\"\\\", Rule[ShowStringCharacters, \
+False]]\\)\\)]\\)\\), None}\\)\\), \\(\\(\[LeftSkeleton] 6 \
+\[RightSkeleton]\\)\\), \\(\\({}\\)\\), All\\)\\)]\\)\\)}\\)\\)\\)\\)]\\), \
+False, Rule[Editable, False], Rule[SelectWithContents, True]]}\\)\[NoBreak] \
+is neither a list of replacement rules nor a valid dispatch table, and so \
+cannot be used for replacing. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/ReplaceAll/reps\\\", ButtonNote -> \
+\\\"ReplaceAll::reps\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6732425625932083`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \
+\[NoBreak]\\!\\(\\*StyleBox[\\(ReplaceAll :: reps\\), \\\"MessageName\\\"]\\)\
+\[NoBreak] will be suppressed during this calculation. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/stop\\\", \
+ButtonNote -> \\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6732425626131077`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"ReplaceAll", "::", "argx"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\(ReplaceAll\\)\[NoBreak] called with \
+\[NoBreak]\\!\\(2\\)\[NoBreak] arguments; 1 argument is expected. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/argx\\\", \
+ButtonNote -> \\\"ReplaceAll::argx\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6732425626577272`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \
+\[NoBreak]\\!\\(\\*StyleBox[\\(ReplaceAll :: argx\\), \\\"MessageName\\\"]\\)\
+\[NoBreak] will be suppressed during this calculation. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/stop\\\", \
+ButtonNote -> \\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.673242562683988*^9}],
+
+Cell[BoxData[
+ GraphicsBox[{},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{0, -1},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  Method->{"ScalingFunctions" -> None},
+  PlotRange->{{0., 0.}, {-1, 1}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.05], 
+     Scaled[0.05]}, {0, 0}},
+  Ticks->FrontEndValueCache[{
+    CustomTicks`LogTicks, CustomTicks`LinTicks}, {{{-2., 
+       FormBox[
+        TagBox[
+         SuperscriptBox["10", 
+          RowBox[{"-", "2"}]], DisplayForm], TraditionalForm], {0.01, 
+       0.}, {}}, {-1., 
+       FormBox[
+        TagBox[
+         SuperscriptBox["10", 
+          RowBox[{"-", "1"}]], DisplayForm], TraditionalForm], {0.01, 
+       0.}, {}}, {0., 
+       FormBox[
+        TagBox[
+         SuperscriptBox["10", "0"], DisplayForm], TraditionalForm], {0.01, 
+       0.}, {}}, {1., 
+       FormBox[
+        TagBox[
+         SuperscriptBox["10", "1"], DisplayForm], TraditionalForm], {0.01, 
+       0.}, {}}, {2., 
+       FormBox[
+        TagBox[
+         SuperscriptBox["10", "2"], DisplayForm], TraditionalForm], {0.01, 
+       0.}, {}}, {-1.6989700043360187`, 
+       FormBox["\"\"", TraditionalForm], {0.005, 
+       0.}, {}}, {-1.5228787452803376`, 
+       FormBox["\"\"", TraditionalForm], {0.005, 
+       0.}, {}}, {-1.3979400086720377`, 
+       FormBox["\"\"", TraditionalForm], {0.005, 
+       0.}, {}}, {-1.3010299956639813`, 
+       FormBox["\"\"", TraditionalForm], {0.005, 
+       0.}, {}}, {-1.2218487496163566`, 
+       FormBox["\"\"", TraditionalForm], {0.005, 
+       0.}, {}}, {-1.1549019599857433`, 
+       FormBox["\"\"", TraditionalForm], {0.005, 
+       0.}, {}}, {-1.0969100130080567`, 
+       FormBox["\"\"", TraditionalForm], {0.005, 
+       0.}, {}}, {-1.0457574905606752`, 
+       FormBox["\"\"", TraditionalForm], {0.005, 
+       0.}, {}}, {-0.6989700043360189, 
+       FormBox["\"\"", TraditionalForm], {0.005, 
+       0.}, {}}, {-0.5228787452803376, 
+       FormBox["\"\"", TraditionalForm], {0.005, 
+       0.}, {}}, {-0.3979400086720377, 
+       FormBox["\"\"", TraditionalForm], {0.005, 
+       0.}, {}}, {-0.30102999566398136`, 
+       FormBox["\"\"", TraditionalForm], {0.005, 
+       0.}, {}}, {-0.22184874961635648`, 
+       FormBox["\"\"", TraditionalForm], {0.005, 
+       0.}, {}}, {-0.1549019599857433, 
+       FormBox["\"\"", TraditionalForm], {0.005, 
+       0.}, {}}, {-0.09691001300805668, 
+       FormBox["\"\"", TraditionalForm], {0.005, 
+       0.}, {}}, {-0.04575749056067524, 
+       FormBox["\"\"", TraditionalForm], {0.005, 0.}, {}}, {
+      0.30102999566398114`, 
+       FormBox["\"\"", TraditionalForm], {0.005, 0.}, {}}, {
+      0.4771212547196624, 
+       FormBox["\"\"", TraditionalForm], {0.005, 0.}, {}}, {
+      0.6020599913279623, 
+       FormBox["\"\"", TraditionalForm], {0.005, 0.}, {}}, {
+      0.6989700043360186, 
+       FormBox["\"\"", TraditionalForm], {0.005, 0.}, {}}, {
+      0.7781512503836435, 
+       FormBox["\"\"", TraditionalForm], {0.005, 0.}, {}}, {
+      0.8450980400142567, 
+       FormBox["\"\"", TraditionalForm], {0.005, 0.}, {}}, {
+      0.9030899869919433, 
+       FormBox["\"\"", TraditionalForm], {0.005, 0.}, {}}, {
+      0.9542425094393248, 
+       FormBox["\"\"", TraditionalForm], {0.005, 0.}, {}}, {
+      1.3010299956639813`, 
+       FormBox["\"\"", TraditionalForm], {0.005, 0.}, {}}, {
+      1.4771212547196624`, 
+       FormBox["\"\"", TraditionalForm], {0.005, 0.}, {}}, {
+      1.6020599913279623`, 
+       FormBox["\"\"", TraditionalForm], {0.005, 0.}, {}}, {
+      1.6989700043360187`, 
+       FormBox["\"\"", TraditionalForm], {0.005, 0.}, {}}, {
+      1.7781512503836434`, 
+       FormBox["\"\"", TraditionalForm], {0.005, 0.}, {}}, {
+      1.8450980400142567`, 
+       FormBox["\"\"", TraditionalForm], {0.005, 0.}, {}}, {
+      1.9030899869919433`, 
+       FormBox["\"\"", TraditionalForm], {0.005, 0.}, {}}, {
+      1.9542425094393248`, 
+       FormBox["\"\"", TraditionalForm], {0.005, 0.}, {}}}, {{-1., 
+       FormBox["\"-1.0\"", TraditionalForm], {0.01, 0.}, {}}, {-0.5, 
+       FormBox["\"-0.5\"", TraditionalForm], {0.01, 0.}, {}}, {0., 
+       FormBox["\"0.0\"", TraditionalForm], {0.01, 0.}, {}}, {0.5, 
+       FormBox["\"0.5\"", TraditionalForm], {0.01, 0.}, {}}, {1., 
+       FormBox["\"1.0\"", TraditionalForm], {0.01, 0.}, {}}, {-0.9, 
+       FormBox["\"\"", TraditionalForm], {0.005, 0.}, {}}, {-0.8, 
+       FormBox["\"\"", TraditionalForm], {0.005, 0.}, {}}, {-0.7, 
+       FormBox["\"\"", TraditionalForm], {0.005, 0.}, {}}, {-0.6, 
+       FormBox["\"\"", TraditionalForm], {0.005, 0.}, {}}, {-0.4, 
+       FormBox["\"\"", TraditionalForm], {0.005, 0.}, {}}, {-0.3, 
+       FormBox["\"\"", TraditionalForm], {0.005, 
+       0.}, {}}, {-0.19999999999999996`, 
+       FormBox["\"\"", TraditionalForm], {0.005, 
+       0.}, {}}, {-0.09999999999999998, 
+       FormBox["\"\"", TraditionalForm], {0.005, 0.}, {}}, {0.1, 
+       FormBox["\"\"", TraditionalForm], {0.005, 0.}, {}}, {0.2, 
+       FormBox["\"\"", TraditionalForm], {0.005, 0.}, {}}, {
+      0.30000000000000004`, 
+       FormBox["\"\"", TraditionalForm], {0.005, 0.}, {}}, {0.4, 
+       FormBox["\"\"", TraditionalForm], {0.005, 0.}, {}}, {0.6, 
+       FormBox["\"\"", TraditionalForm], {0.005, 0.}, {}}, {0.7, 
+       FormBox["\"\"", TraditionalForm], {0.005, 0.}, {}}, {0.8, 
+       FormBox["\"\"", TraditionalForm], {0.005, 0.}, {}}, {0.9, 
+       FormBox["\"\"", TraditionalForm], {0.005, 0.}, {}}}}]]], "Output",
+ CellChangeTimes->{
+  3.672478564566228*^9, {3.672478606147231*^9, 3.672478667166451*^9}, {
+   3.672478698902519*^9, 3.6724787180995617`*^9}, {3.672478753884426*^9, 
+   3.672478809867818*^9}, {3.672478851327107*^9, 3.672478899675633*^9}, {
+   3.672478977864554*^9, 3.672478985759664*^9}, {3.672479071723324*^9, 
+   3.67247911053302*^9}, {3.672479177735003*^9, 3.672479224271299*^9}, 
+   3.672479256880721*^9, 3.672479290997961*^9, {3.6724793624814243`*^9, 
+   3.6724794086565104`*^9}, 3.6724794518374453`*^9, {3.672479497512567*^9, 
+   3.672479524567082*^9}, {3.672479555578006*^9, 3.672479579714039*^9}, 
+   3.6724796112782993`*^9, {3.672479674655038*^9, 3.672479712521124*^9}, {
+   3.672479901520952*^9, 3.672479922533019*^9}, {3.672479982683342*^9, 
+   3.67248000462409*^9}, 3.6726219347851667`*^9, {3.672621966787816*^9, 
+   3.672621988243335*^9}, {3.6726221594322233`*^9, 3.672622215552055*^9}, {
+   3.672622260012422*^9, 3.6726222880628357`*^9}, {3.672622319307005*^9, 
+   3.672622336763384*^9}, 3.672622438399438*^9, {3.67262250728518*^9, 
+   3.672622561625935*^9}, {3.672622594306779*^9, 3.6726226145390663`*^9}, 
+   3.672622719250169*^9, {3.6726227994940023`*^9, 3.672622832335937*^9}, {
+   3.672622869294305*^9, 3.672622889465013*^9}, {3.672622953720305*^9, 
+   3.672622992701989*^9}, 3.6726230229008303`*^9, 3.6726231258227863`*^9, {
+   3.6726231664030447`*^9, 3.6726231809236603`*^9}, {3.672749084742538*^9, 
+   3.6727491065032167`*^9}, {3.672749241633967*^9, 3.672749296647374*^9}, 
+   3.672749423568376*^9, {3.673238399565144*^9, 3.67323841906352*^9}, {
+   3.673238667134557*^9, 3.673238683661776*^9}, {3.673238750579372*^9, 
+   3.673238760110751*^9}, 3.6732388549171867`*^9, 3.6732424278438683`*^9, 
+   3.673242562694357*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"ReplaceAll", "::", "reps"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\({\\*TagBox[\\(ParametricFunction[\\(\\(1, \
+\\(\\(Internal`Bag[\\(\\(\\*StyleBox[\\\"\\\\\\\"<\\\\\\\"\\\", \
+Rule[ShowStringCharacters, False]] \[InvisibleSpace] 1 \[InvisibleSpace] \
+\\*StyleBox[\\\"\\\\\\\">\\\\\\\"\\\", Rule[ShowStringCharacters, \
+False]]\\)\\)]\\)\\), 0, 1, \\(\\({\\(\\({b$114816}\\)\\), \
+\\(\\(System`Utilities`HashTable[\\(\\(\\*StyleBox[\\\"\\\\\\\"<\\\\\\\"\\\", \
+Rule[ShowStringCharacters, False]] \[InvisibleSpace] 2 \[InvisibleSpace] \
+\\*StyleBox[\\\"\\\\\\\">\\\\\\\"\\\", Rule[ShowStringCharacters, \
+False]]\\)\\)]\\)\\), \\(\\({}\\)\\), \\(\\({}\\)\\), \\(\\({1}\\)\\), \
+\\(\\({Automatic, 0, 0}\\)\\)}\\)\\), \\(\\({NDSolve`base$114823, \
+\\(\\(NDSolve`NDSolveParametricFunction[\\(\\(0, \
+\\(\\({ParametricNDSolveValue, \
+\\(\\(Internal`Bag[\\(\\(\\*StyleBox[\\\"\\\\\\\"<\\\\\\\"\\\", \
+Rule[ShowStringCharacters, False]] \[InvisibleSpace] 2 \[InvisibleSpace] \
+\\*StyleBox[\\\"\\\\\\\">\\\\\\\"\\\", Rule[ShowStringCharacters, \
+False]]\\)\\)]\\)\\), None}\\)\\), \\(\\(\[LeftSkeleton] 6 \
+\[RightSkeleton]\\)\\), \\(\\({}\\)\\), All\\)\\)]\\)\\)}\\)\\)\\)\\)]\\), \
+False, Rule[Editable, False], Rule[SelectWithContents, True]]}\\)\[NoBreak] \
+is neither a list of replacement rules nor a valid dispatch table, and so \
+cannot be used for replacing. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/ReplaceAll/reps\\\", ButtonNote -> \
+\\\"ReplaceAll::reps\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.673242562795272*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"ReplaceAll", "::", "argx"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\(ReplaceAll\\)\[NoBreak] called with \
+\[NoBreak]\\!\\(2\\)\[NoBreak] arguments; 1 argument is expected. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/argx\\\", \
+ButtonNote -> \\\"ReplaceAll::argx\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.673242562815679*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"ReplaceAll", "::", "reps"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\({\\*TagBox[\\(ParametricFunction[\\(\\(1, \
+\\(\\(Internal`Bag[\\(\\(\\*StyleBox[\\\"\\\\\\\"<\\\\\\\"\\\", \
+Rule[ShowStringCharacters, False]] \[InvisibleSpace] 1 \[InvisibleSpace] \
+\\*StyleBox[\\\"\\\\\\\">\\\\\\\"\\\", Rule[ShowStringCharacters, \
+False]]\\)\\)]\\)\\), 0, 1, \\(\\({\\(\\({b$114816}\\)\\), \
+\\(\\(System`Utilities`HashTable[\\(\\(\\*StyleBox[\\\"\\\\\\\"<\\\\\\\"\\\", \
+Rule[ShowStringCharacters, False]] \[InvisibleSpace] 2 \[InvisibleSpace] \
+\\*StyleBox[\\\"\\\\\\\">\\\\\\\"\\\", Rule[ShowStringCharacters, \
+False]]\\)\\)]\\)\\), \\(\\({}\\)\\), \\(\\({}\\)\\), \\(\\({1}\\)\\), \
+\\(\\({Automatic, 0, 0}\\)\\)}\\)\\), \\(\\({NDSolve`base$114823, \
+\\(\\(NDSolve`NDSolveParametricFunction[\\(\\(0, \
+\\(\\({ParametricNDSolveValue, \
+\\(\\(Internal`Bag[\\(\\(\\*StyleBox[\\\"\\\\\\\"<\\\\\\\"\\\", \
+Rule[ShowStringCharacters, False]] \[InvisibleSpace] 2 \[InvisibleSpace] \
+\\*StyleBox[\\\"\\\\\\\">\\\\\\\"\\\", Rule[ShowStringCharacters, \
+False]]\\)\\)]\\)\\), None}\\)\\), \\(\\(\[LeftSkeleton] 6 \
+\[RightSkeleton]\\)\\), \\(\\({}\\)\\), All\\)\\)]\\)\\)}\\)\\)\\)\\)]\\), \
+False, Rule[Editable, False], Rule[SelectWithContents, True]]}\\)\[NoBreak] \
+is neither a list of replacement rules nor a valid dispatch table, and so \
+cannot be used for replacing. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/ReplaceAll/reps\\\", ButtonNote -> \
+\\\"ReplaceAll::reps\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.673242562841427*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"ReplaceAll", "::", "argx"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\(ReplaceAll\\)\[NoBreak] called with \
+\[NoBreak]\\!\\(2\\)\[NoBreak] arguments; 1 argument is expected. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/argx\\\", \
+ButtonNote -> \\\"ReplaceAll::argx\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.673242562883739*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"ReplaceAll", "::", "reps"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\({\\*TagBox[\\(ParametricFunction[\\(\\(1, \
+\\(\\(Internal`Bag[\\(\\(\\*StyleBox[\\\"\\\\\\\"<\\\\\\\"\\\", \
+Rule[ShowStringCharacters, False]] \[InvisibleSpace] 1 \[InvisibleSpace] \
+\\*StyleBox[\\\"\\\\\\\">\\\\\\\"\\\", Rule[ShowStringCharacters, \
+False]]\\)\\)]\\)\\), 0, 1, \\(\\({\\(\\({b$114816}\\)\\), \
+\\(\\(System`Utilities`HashTable[\\(\\(\\*StyleBox[\\\"\\\\\\\"<\\\\\\\"\\\", \
+Rule[ShowStringCharacters, False]] \[InvisibleSpace] 2 \[InvisibleSpace] \
+\\*StyleBox[\\\"\\\\\\\">\\\\\\\"\\\", Rule[ShowStringCharacters, \
+False]]\\)\\)]\\)\\), \\(\\({}\\)\\), \\(\\({}\\)\\), \\(\\({1}\\)\\), \
+\\(\\({Automatic, 0, 0}\\)\\)}\\)\\), \\(\\({NDSolve`base$114823, \
+\\(\\(NDSolve`NDSolveParametricFunction[\\(\\(0, \
+\\(\\({ParametricNDSolveValue, \
+\\(\\(Internal`Bag[\\(\\(\\*StyleBox[\\\"\\\\\\\"<\\\\\\\"\\\", \
+Rule[ShowStringCharacters, False]] \[InvisibleSpace] 2 \[InvisibleSpace] \
+\\*StyleBox[\\\"\\\\\\\">\\\\\\\"\\\", Rule[ShowStringCharacters, \
+False]]\\)\\)]\\)\\), None}\\)\\), \\(\\(\[LeftSkeleton] 6 \
+\[RightSkeleton]\\)\\), \\(\\({}\\)\\), All\\)\\)]\\)\\)}\\)\\)\\)\\)]\\), \
+False, Rule[Editable, False], Rule[SelectWithContents, True]]}\\)\[NoBreak] \
+is neither a list of replacement rules nor a valid dispatch table, and so \
+cannot be used for replacing. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/ReplaceAll/reps\\\", ButtonNote -> \
+\\\"ReplaceAll::reps\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.673242562906003*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \
+\[NoBreak]\\!\\(\\*StyleBox[\\(ReplaceAll :: reps\\), \\\"MessageName\\\"]\\)\
+\[NoBreak] will be suppressed during this calculation. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/stop\\\", \
+ButtonNote -> \\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6732425629275093`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"ReplaceAll", "::", "argx"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\(ReplaceAll\\)\[NoBreak] called with \
+\[NoBreak]\\!\\(2\\)\[NoBreak] arguments; 1 argument is expected. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/argx\\\", \
+ButtonNote -> \\\"ReplaceAll::argx\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.673242562964573*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \
+\[NoBreak]\\!\\(\\*StyleBox[\\(ReplaceAll :: argx\\), \\\"MessageName\\\"]\\)\
+\[NoBreak] will be suppressed during this calculation. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/stop\\\", \
+ButtonNote -> \\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6732425629883623`*^9}],
+
+Cell[BoxData[
+ GraphicsBox[{},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{0, -1},
+  DisplayFunction->Identity,
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  Method->{"ScalingFunctions" -> None},
+  PlotRange->{{0., 0.}, {-1, 1}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.05], 
+     Scaled[0.05]}, {0, 0}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{
+  3.672478564566228*^9, {3.672478606147231*^9, 3.672478667166451*^9}, {
+   3.672478698902519*^9, 3.6724787180995617`*^9}, {3.672478753884426*^9, 
+   3.672478809867818*^9}, {3.672478851327107*^9, 3.672478899675633*^9}, {
+   3.672478977864554*^9, 3.672478985759664*^9}, {3.672479071723324*^9, 
+   3.67247911053302*^9}, {3.672479177735003*^9, 3.672479224271299*^9}, 
+   3.672479256880721*^9, 3.672479290997961*^9, {3.6724793624814243`*^9, 
+   3.6724794086565104`*^9}, 3.6724794518374453`*^9, {3.672479497512567*^9, 
+   3.672479524567082*^9}, {3.672479555578006*^9, 3.672479579714039*^9}, 
+   3.6724796112782993`*^9, {3.672479674655038*^9, 3.672479712521124*^9}, {
+   3.672479901520952*^9, 3.672479922533019*^9}, {3.672479982683342*^9, 
+   3.67248000462409*^9}, 3.6726219347851667`*^9, {3.672621966787816*^9, 
+   3.672621988243335*^9}, {3.6726221594322233`*^9, 3.672622215552055*^9}, {
+   3.672622260012422*^9, 3.6726222880628357`*^9}, {3.672622319307005*^9, 
+   3.672622336763384*^9}, 3.672622438399438*^9, {3.67262250728518*^9, 
+   3.672622561625935*^9}, {3.672622594306779*^9, 3.6726226145390663`*^9}, 
+   3.672622719250169*^9, {3.6726227994940023`*^9, 3.672622832335937*^9}, {
+   3.672622869294305*^9, 3.672622889465013*^9}, {3.672622953720305*^9, 
+   3.672622992701989*^9}, 3.6726230229008303`*^9, 3.6726231258227863`*^9, {
+   3.6726231664030447`*^9, 3.6726231809236603`*^9}, {3.672749084742538*^9, 
+   3.6727491065032167`*^9}, {3.672749241633967*^9, 3.672749296647374*^9}, 
+   3.672749423568376*^9, {3.673238399565144*^9, 3.67323841906352*^9}, {
+   3.673238667134557*^9, 3.673238683661776*^9}, {3.673238750579372*^9, 
+   3.673238760110751*^9}, 3.6732388549171867`*^9, 3.6732424278438683`*^9, 
+   3.6732425629957933`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"xMax=\"\>", "\[InvisibleSpace]", "xMax", 
+   "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm["xMax=", $CellContext`xMax, ""],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.6724787539005632`*^9, 3.6724788098836727`*^9}, {
+   3.672478851340255*^9, 3.672478899688472*^9}, {3.6724789778758907`*^9, 
+   3.672478985771418*^9}, {3.672479071733727*^9, 3.672479110542987*^9}, {
+   3.67247917774547*^9, 3.672479224283725*^9}, 3.672479256894858*^9, 
+   3.672479291011722*^9, {3.672479362492283*^9, 3.672479408670322*^9}, 
+   3.672479451851699*^9, {3.6724794975265617`*^9, 3.672479524581023*^9}, {
+   3.672479555588518*^9, 3.672479579725079*^9}, 3.672479611289947*^9, {
+   3.672479674667495*^9, 3.67247971253226*^9}, {3.6724799015321693`*^9, 
+   3.672479922544606*^9}, {3.672479982694738*^9, 3.672480004634573*^9}, 
+   3.67262193479379*^9, {3.672621966799107*^9, 3.67262198825631*^9}, {
+   3.672622159444981*^9, 3.672622215562468*^9}, {3.6726222600245857`*^9, 
+   3.67262228807541*^9}, {3.6726223193230352`*^9, 3.67262233677343*^9}, 
+   3.672622438411332*^9, {3.672622507297021*^9, 3.6726225616374197`*^9}, {
+   3.672622594318988*^9, 3.672622614550489*^9}, 3.6726227192606573`*^9, {
+   3.672622799504403*^9, 3.672622832352433*^9}, {3.672622869304838*^9, 
+   3.672622889478037*^9}, {3.672622953731564*^9, 3.6726229927150373`*^9}, 
+   3.6726230229147387`*^9, 3.672623125838414*^9, {3.672623166415539*^9, 
+   3.67262318093583*^9}, {3.672749084751899*^9, 3.672749106516411*^9}, {
+   3.672749241647525*^9, 3.6727492966573687`*^9}, 3.67274942357918*^9, {
+   3.6732383995768757`*^9, 3.6732384200408697`*^9}, {3.6732386691024923`*^9, 
+   3.6732386857537403`*^9}, {3.673238752714345*^9, 3.673238762241023*^9}, 
+   3.673238856165453*^9, 3.673242429994416*^9, 3.673242563000827*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"ReplaceAll", "::", "reps"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\({\\*TagBox[\\(ParametricFunction[\\(\\(1, \
+\\(\\(Internal`Bag[\\(\\(\\*StyleBox[\\\"\\\\\\\"<\\\\\\\"\\\", \
+Rule[ShowStringCharacters, False]] \[InvisibleSpace] 1 \[InvisibleSpace] \
+\\*StyleBox[\\\"\\\\\\\">\\\\\\\"\\\", Rule[ShowStringCharacters, \
+False]]\\)\\)]\\)\\), 0, 1, \\(\\({\\(\\({b$114816}\\)\\), \
+\\(\\(System`Utilities`HashTable[\\(\\(\\*StyleBox[\\\"\\\\\\\"<\\\\\\\"\\\", \
+Rule[ShowStringCharacters, False]] \[InvisibleSpace] 2 \[InvisibleSpace] \
+\\*StyleBox[\\\"\\\\\\\">\\\\\\\"\\\", Rule[ShowStringCharacters, \
+False]]\\)\\)]\\)\\), \\(\\({}\\)\\), \\(\\({}\\)\\), \\(\\({1}\\)\\), \
+\\(\\({Automatic, 0, 0}\\)\\)}\\)\\), \\(\\({NDSolve`base$114823, \
+\\(\\(NDSolve`NDSolveParametricFunction[\\(\\(0, \
+\\(\\({ParametricNDSolveValue, \
+\\(\\(Internal`Bag[\\(\\(\\*StyleBox[\\\"\\\\\\\"<\\\\\\\"\\\", \
+Rule[ShowStringCharacters, False]] \[InvisibleSpace] 2 \[InvisibleSpace] \
+\\*StyleBox[\\\"\\\\\\\">\\\\\\\"\\\", Rule[ShowStringCharacters, \
+False]]\\)\\)]\\)\\), None}\\)\\), \\(\\(\[LeftSkeleton] 6 \
+\[RightSkeleton]\\)\\), \\(\\({}\\)\\), All\\)\\)]\\)\\)}\\)\\)\\)\\)]\\), \
+False, Rule[Editable, False], Rule[SelectWithContents, True]]}\\)\[NoBreak] \
+is neither a list of replacement rules nor a valid dispatch table, and so \
+cannot be used for replacing. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/ReplaceAll/reps\\\", ButtonNote -> \
+\\\"ReplaceAll::reps\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6732425630501757`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"ReplaceAll", "::", "argx"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\(ReplaceAll\\)\[NoBreak] called with \
+\[NoBreak]\\!\\(2\\)\[NoBreak] arguments; 1 argument is expected. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/argx\\\", \
+ButtonNote -> \\\"ReplaceAll::argx\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.673242563088572*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"ReplaceAll", "::", "reps"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\({\\*TagBox[\\(ParametricFunction[\\(\\(1, \
+\\(\\(Internal`Bag[\\(\\(\\*StyleBox[\\\"\\\\\\\"<\\\\\\\"\\\", \
+Rule[ShowStringCharacters, False]] \[InvisibleSpace] 1 \[InvisibleSpace] \
+\\*StyleBox[\\\"\\\\\\\">\\\\\\\"\\\", Rule[ShowStringCharacters, \
+False]]\\)\\)]\\)\\), 0, 1, \\(\\({\\(\\({b$114816}\\)\\), \
+\\(\\(System`Utilities`HashTable[\\(\\(\\*StyleBox[\\\"\\\\\\\"<\\\\\\\"\\\", \
+Rule[ShowStringCharacters, False]] \[InvisibleSpace] 2 \[InvisibleSpace] \
+\\*StyleBox[\\\"\\\\\\\">\\\\\\\"\\\", Rule[ShowStringCharacters, \
+False]]\\)\\)]\\)\\), \\(\\({}\\)\\), \\(\\({}\\)\\), \\(\\({1}\\)\\), \
+\\(\\({Automatic, 0, 0}\\)\\)}\\)\\), \\(\\({NDSolve`base$114823, \
+\\(\\(NDSolve`NDSolveParametricFunction[\\(\\(0, \
+\\(\\({ParametricNDSolveValue, \
+\\(\\(Internal`Bag[\\(\\(\\*StyleBox[\\\"\\\\\\\"<\\\\\\\"\\\", \
+Rule[ShowStringCharacters, False]] \[InvisibleSpace] 2 \[InvisibleSpace] \
+\\*StyleBox[\\\"\\\\\\\">\\\\\\\"\\\", Rule[ShowStringCharacters, \
+False]]\\)\\)]\\)\\), None}\\)\\), \\(\\(\[LeftSkeleton] 6 \
+\[RightSkeleton]\\)\\), \\(\\({}\\)\\), All\\)\\)]\\)\\)}\\)\\)\\)\\)]\\), \
+False, Rule[Editable, False], Rule[SelectWithContents, True]]}\\)\[NoBreak] \
+is neither a list of replacement rules nor a valid dispatch table, and so \
+cannot be used for replacing. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/ReplaceAll/reps\\\", ButtonNote -> \
+\\\"ReplaceAll::reps\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6732425631106987`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"ReplaceAll", "::", "argx"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\(ReplaceAll\\)\[NoBreak] called with \
+\[NoBreak]\\!\\(2\\)\[NoBreak] arguments; 1 argument is expected. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/argx\\\", \
+ButtonNote -> \\\"ReplaceAll::argx\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.67324256314986*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"ReplaceAll", "::", "reps"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\({\\*TagBox[\\(ParametricFunction[\\(\\(1, \
+\\(\\(Internal`Bag[\\(\\(\\*StyleBox[\\\"\\\\\\\"<\\\\\\\"\\\", \
+Rule[ShowStringCharacters, False]] \[InvisibleSpace] 1 \[InvisibleSpace] \
+\\*StyleBox[\\\"\\\\\\\">\\\\\\\"\\\", Rule[ShowStringCharacters, \
+False]]\\)\\)]\\)\\), 0, 1, \\(\\({\\(\\({b$114816}\\)\\), \
+\\(\\(System`Utilities`HashTable[\\(\\(\\*StyleBox[\\\"\\\\\\\"<\\\\\\\"\\\", \
+Rule[ShowStringCharacters, False]] \[InvisibleSpace] 2 \[InvisibleSpace] \
+\\*StyleBox[\\\"\\\\\\\">\\\\\\\"\\\", Rule[ShowStringCharacters, \
+False]]\\)\\)]\\)\\), \\(\\({}\\)\\), \\(\\({}\\)\\), \\(\\({1}\\)\\), \
+\\(\\({Automatic, 0, 0}\\)\\)}\\)\\), \\(\\({NDSolve`base$114823, \
+\\(\\(NDSolve`NDSolveParametricFunction[\\(\\(0, \
+\\(\\({ParametricNDSolveValue, \
+\\(\\(Internal`Bag[\\(\\(\\*StyleBox[\\\"\\\\\\\"<\\\\\\\"\\\", \
+Rule[ShowStringCharacters, False]] \[InvisibleSpace] 2 \[InvisibleSpace] \
+\\*StyleBox[\\\"\\\\\\\">\\\\\\\"\\\", Rule[ShowStringCharacters, \
+False]]\\)\\)]\\)\\), None}\\)\\), \\(\\(\[LeftSkeleton] 6 \
+\[RightSkeleton]\\)\\), \\(\\({}\\)\\), All\\)\\)]\\)\\)}\\)\\)\\)\\)]\\), \
+False, Rule[Editable, False], Rule[SelectWithContents, True]]}\\)\[NoBreak] \
+is neither a list of replacement rules nor a valid dispatch table, and so \
+cannot be used for replacing. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/ReplaceAll/reps\\\", ButtonNote -> \
+\\\"ReplaceAll::reps\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.673242563175935*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \
+\[NoBreak]\\!\\(\\*StyleBox[\\(ReplaceAll :: reps\\), \\\"MessageName\\\"]\\)\
+\[NoBreak] will be suppressed during this calculation. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/stop\\\", \
+ButtonNote -> \\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.67324256319526*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"ReplaceAll", "::", "argx"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\(ReplaceAll\\)\[NoBreak] called with \
+\[NoBreak]\\!\\(2\\)\[NoBreak] arguments; 1 argument is expected. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/argx\\\", \
+ButtonNote -> \\\"ReplaceAll::argx\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.673242563238472*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "stop"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Further output of \
+\[NoBreak]\\!\\(\\*StyleBox[\\(ReplaceAll :: argx\\), \\\"MessageName\\\"]\\)\
+\[NoBreak] will be suppressed during this calculation. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/stop\\\", \
+ButtonNote -> \\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.673242563258687*^9}],
+
+Cell[BoxData[
+ GraphicsBox[{},
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{0, -1},
+  DisplayFunction->Identity,
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  Method->{"ScalingFunctions" -> None},
+  PlotRange->{{0., 0.}, {-1, 1}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.05], 
+     Scaled[0.05]}, {0, 0}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{
+  3.672478564566228*^9, {3.672478606147231*^9, 3.672478667166451*^9}, {
+   3.672478698902519*^9, 3.6724787180995617`*^9}, {3.672478753884426*^9, 
+   3.672478809867818*^9}, {3.672478851327107*^9, 3.672478899675633*^9}, {
+   3.672478977864554*^9, 3.672478985759664*^9}, {3.672479071723324*^9, 
+   3.67247911053302*^9}, {3.672479177735003*^9, 3.672479224271299*^9}, 
+   3.672479256880721*^9, 3.672479290997961*^9, {3.6724793624814243`*^9, 
+   3.6724794086565104`*^9}, 3.6724794518374453`*^9, {3.672479497512567*^9, 
+   3.672479524567082*^9}, {3.672479555578006*^9, 3.672479579714039*^9}, 
+   3.6724796112782993`*^9, {3.672479674655038*^9, 3.672479712521124*^9}, {
+   3.672479901520952*^9, 3.672479922533019*^9}, {3.672479982683342*^9, 
+   3.67248000462409*^9}, 3.6726219347851667`*^9, {3.672621966787816*^9, 
+   3.672621988243335*^9}, {3.6726221594322233`*^9, 3.672622215552055*^9}, {
+   3.672622260012422*^9, 3.6726222880628357`*^9}, {3.672622319307005*^9, 
+   3.672622336763384*^9}, 3.672622438399438*^9, {3.67262250728518*^9, 
+   3.672622561625935*^9}, {3.672622594306779*^9, 3.6726226145390663`*^9}, 
+   3.672622719250169*^9, {3.6726227994940023`*^9, 3.672622832335937*^9}, {
+   3.672622869294305*^9, 3.672622889465013*^9}, {3.672622953720305*^9, 
+   3.672622992701989*^9}, 3.6726230229008303`*^9, 3.6726231258227863`*^9, {
+   3.6726231664030447`*^9, 3.6726231809236603`*^9}, {3.672749084742538*^9, 
+   3.6727491065032167`*^9}, {3.672749241633967*^9, 3.672749296647374*^9}, 
+   3.672749423568376*^9, {3.673238399565144*^9, 3.67323841906352*^9}, {
+   3.673238667134557*^9, 3.673238683661776*^9}, {3.673238750579372*^9, 
+   3.673238760110751*^9}, 3.6732388549171867`*^9, 3.6732424278438683`*^9, 
+   3.673242563266378*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"ReplaceAll", "::", "reps"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\({\\*TagBox[\\(ParametricFunction[\\(\\(1, \
+\\(\\(Internal`Bag[\\(\\(\\*StyleBox[\\\"\\\\\\\"<\\\\\\\"\\\", \
+Rule[ShowStringCharacters, False]] \[InvisibleSpace] 1 \[InvisibleSpace] \
+\\*StyleBox[\\\"\\\\\\\">\\\\\\\"\\\", Rule[ShowStringCharacters, \
+False]]\\)\\)]\\)\\), 0, 1, \\(\\({\\(\\({b$114816}\\)\\), \
+\\(\\(System`Utilities`HashTable[\\(\\(\\*StyleBox[\\\"\\\\\\\"<\\\\\\\"\\\", \
+Rule[ShowStringCharacters, False]] \[InvisibleSpace] 2 \[InvisibleSpace] \
+\\*StyleBox[\\\"\\\\\\\">\\\\\\\"\\\", Rule[ShowStringCharacters, \
+False]]\\)\\)]\\)\\), \\(\\({}\\)\\), \\(\\({}\\)\\), \\(\\({1}\\)\\), \
+\\(\\({Automatic, 0, 0}\\)\\)}\\)\\), \\(\\({NDSolve`base$114823, \
+\\(\\(NDSolve`NDSolveParametricFunction[\\(\\(0, \
+\\(\\({ParametricNDSolveValue, \
+\\(\\(Internal`Bag[\\(\\(\\*StyleBox[\\\"\\\\\\\"<\\\\\\\"\\\", \
+Rule[ShowStringCharacters, False]] \[InvisibleSpace] 2 \[InvisibleSpace] \
+\\*StyleBox[\\\"\\\\\\\">\\\\\\\"\\\", Rule[ShowStringCharacters, \
+False]]\\)\\)]\\)\\), None}\\)\\), \\(\\(\[LeftSkeleton] 6 \
+\[RightSkeleton]\\)\\), \\(\\({}\\)\\), All\\)\\)]\\)\\)}\\)\\)\\)\\)]\\), \
+False, Rule[Editable, False], Rule[SelectWithContents, True]]}\\)\[NoBreak] \
+is neither a list of replacement rules nor a valid dispatch table, and so \
+cannot be used for replacing. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/ReplaceAll/reps\\\", ButtonNote -> \
+\\\"ReplaceAll::reps\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6732425632875547`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Plot", "::", "plln"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Limiting value \[NoBreak]\\!\\(xMax\\)\[NoBreak] in \
+\[NoBreak]\\!\\({x, 0, xMax}\\)\[NoBreak] is not a machine-sized real number. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/plln\\\", \
+ButtonNote -> \\\"Plot::plln\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6732425633443127`*^9}],
+
+Cell[BoxData[
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"a", "[", "1", "]"}], "[", "x", "]"}], "/.", "\[VeryThinSpace]", 
+    
+    TagBox[
+     TemplateBox[{RowBox[{
+         StyleBox[
+          TagBox["ParametricFunction", "SummaryHead"], 
+          "NonInterpretableSummary"], 
+         StyleBox["[", "NonInterpretableSummary"], 
+         DynamicModuleBox[{Typeset`open$$ = False}, 
+          PanelBox[
+           PaneSelectorBox[{False -> GridBox[{{
+                 PaneBox[
+                  ButtonBox[
+                   DynamicBox[
+                    FEPrivate`FrontEndResource[
+                    "FEBitmaps", "SquarePlusIconMedium"]], 
+                   ButtonFunction :> (Typeset`open$$ = True), Appearance -> 
+                   None, Evaluator -> Automatic, Method -> "Preemptive"], 
+                  Alignment -> {Center, Center}, ImageSize -> 
+                  Dynamic[{
+                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                    AbsoluteCurrentValue[Magnification]}]], 
+                 GraphicsBox[{{}, {}, {
+                    GrayLevel[0.55], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[1.], 
+                    
+                    LineBox[{{9.09090909090909*^-8, 9.090909090884856*^-8}, {
+                    0.0874367476365131, 0.08197166587636243}, {
+                    0.18222810297558026`, 0.1358255024317191}, {
+                    0.27073779576926765`, 0.13315455086535802`}, {
+                    0.3575112797365835, 0.08143316377978886}, {
+                    0.4516394623155443, -0.007347854733426912}, {
+                    0.5394859823491253, -0.08816932746972758}, {
+                    0.6346872009943513, -0.13787329990112937`}, {
+                    0.7281522108132057, -0.12816574147938434`}, {
+                    0.8153355580866803, -0.07001063326902106}, {
+                    0.9098736039718, 0.02121659675083076}, {
+                    0.9999999090909091, 0.10024804094746914`}}]}, {
+                    GrayLevel[0.55], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[1.], 
+                    
+                    LineBox[{{9.09090909090909*^-8, 9.090909090880112*^-8}, {
+                    0.0874367476365131, 0.08090369567458766}, {
+                    0.18222810297558026`, 0.12746559200130417`}, {
+                    0.27073779576926765`, 0.1116266937044405}, {
+                    0.3575112797365835, 0.046963725126600256`}, {
+                    0.4516394623155443, -0.04509050859182233}, {
+                    0.5394859823491253, -0.11115559892361665`}, {
+                    0.6346872009943513, -0.12642564594664163`}, {
+                    0.7281522108132057, -0.07740196037964171}, {
+                    0.8153355580866803, 0.004179083230780074}, {
+                    0.9098736039718, 0.08937493944143977}, {
+                    0.9999999090909091, 0.12834702174618903`}}]}, {
+                    GrayLevel[0.55], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[1.], 
+                    
+                    LineBox[{{9.09090909090909*^-8, 9.090909090875369*^-8}, {
+                    0.0874367476365131, 0.07984396759533968}, {
+                    0.18222810297558026`, 0.11939549826670079`}, {
+                    0.27073779576926765`, 0.09184904274707059}, {
+                    0.3575112797365835, 0.017913117173780694`}, {
+                    0.4516394623155443, -0.07109962300031061}, {
+                    0.5394859823491253, -0.11717052830989395`}, {
+                    0.6346872009943513, -0.09879571259704382}, {
+                    0.7281522108132057, -0.022693471356141894`}, {
+                    0.8153355580866803, 0.06128703302641453}, {
+                    0.9098736039718, 0.11605625481609519`}, {
+                    0.9999999090909091, 0.10415981267620744`}}]}, {
+                    GrayLevel[0.55], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[1.], 
+                    
+                    LineBox[{{9.09090909090909*^-8, 9.090909090870287*^-8}, {
+                    0.0874367476365131, 0.07879243663407876}, {
+                    0.18222810297558026`, 0.1116081822210312}, {
+                    0.27073779576926765`, 0.07372482040530459}, {
+                    0.3575112797365835, -0.006267252216927747}, {
+                    0.4516394623155443, -0.08743897872291118}, {
+                    0.5394859823491253, -0.11109134853087661`}, {
+                    0.6346872009943513, -0.06371549528296311}, {
+                    0.7281522108132057, 0.02544576624054603}, {
+                    0.8153355580866803, 0.09464282937855747}, {
+                    0.9098736039718, 0.10731931496853601`}, {
+                    0.9999999090909091, 0.0516787429232188}}]}, {
+                    GrayLevel[0.55], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[1.], 
+                    
+                    LineBox[{{9.09090909090909*^-8, 9.090909090865543*^-8}, {
+                    0.0874367476365131, 0.07774905743802465}, {
+                    0.18222810297558026`, 0.10409673959866513`}, {
+                    0.27073779576926765`, 0.05716133039337165}, {
+                    0.3575112797365835, -0.026084496726167965`}, {
+                    0.4516394623155443, -0.09591154799603378}, {
+                    0.5394859823491253, -0.09685594593277226}, {
+                    0.6346872009943513, -0.02730376120671303}, {
+                    0.7281522108132057, 0.061646715198529656`}, {
+                    0.8153355580866803, 0.1046634148537508}, {0.9098736039718,
+                     0.07509702498429204}, {
+                    0.9999999090909091, -0.006536873471333553}}]}, {
+                    GrayLevel[0.55], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[1.], 
+                    
+                    LineBox[{{9.09090909090909*^-8, 9.0909090908608*^-8}, {
+                    0.0874367476365131, 0.07671378556951527}, {
+                    0.18222810297558026`, 0.09685439581479163}, {
+                    0.27073779576926765`, 0.042069810325321415`}, {
+                    0.3575112797365835, -0.042006785469922474`}, {
+                    0.4516394623155443, -0.09808544986431629}, {
+                    0.5394859823491253, -0.07760167026270944}, {
+                    0.6346872009943513, 0.0063643674428021085`}, {
+                    0.7281522108132057, 0.08405712128907425}, {
+                    0.8153355580866803, 0.09555213349985489}, {
+                    0.9098736039718, 0.03202960165577907}, {
+                    0.9999999090909091, -0.054402034659985464`}}]}}, 
+                  AspectRatio -> 1, Axes -> {False, False}, 
+                  AxesLabel -> {None, None}, AxesOrigin -> {0, 0}, Background -> 
+                  GrayLevel[0.93], BaseStyle -> {FontFamily -> "Arial"}, 
+                  DisplayFunction -> Identity, 
+                  Frame -> {{True, True}, {True, True}}, 
+                  FrameLabel -> {{None, None}, {None, None}}, FrameStyle -> 
+                  Directive[
+                    Thickness[Tiny], 
+                    GrayLevel[0.7]], 
+                  FrameTicks -> {{None, None}, {None, None}}, 
+                  GridLines -> {None, None}, GridLinesStyle -> Directive[
+                    GrayLevel[0.5, 0.4]], ImageSize -> {Automatic, 
+                    Dynamic[
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])]}, LabelStyle -> {FontFamily -> "Arial"}, 
+                  Method -> {"ScalingFunctions" -> None}, 
+                  PlotRange -> {All, All}, PlotRangeClipping -> True, 
+                  PlotRangePadding -> {Automatic, Automatic}, 
+                  Ticks -> {Automatic, Automatic}], 
+                 GridBox[{{
+                    RowBox[{
+                    TagBox["\"Expression: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    TagBox["a", HoldForm], "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox["\"Parameters: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    RowBox[{"{", "b", "}"}], "SummaryItem"]}]}}, 
+                  GridBoxAlignment -> {
+                   "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
+                  AutoDelete -> False, 
+                  GridBoxItemSize -> {
+                   "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                  GridBoxSpacings -> {
+                   "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
+                  BaseStyle -> {
+                   ShowStringCharacters -> False, NumberMarks -> False, 
+                    PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+               GridBoxAlignment -> {"Rows" -> {{Top}}}, AutoDelete -> False, 
+               GridBoxItemSize -> {
+                "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+               BaselinePosition -> {1, 1}], True -> GridBox[{{
+                 PaneBox[
+                  ButtonBox[
+                   DynamicBox[
+                    FEPrivate`FrontEndResource[
+                    "FEBitmaps", "SquareMinusIconMedium"]], 
+                   ButtonFunction :> (Typeset`open$$ = False), Appearance -> 
+                   None, Evaluator -> Automatic, Method -> "Preemptive"], 
+                  Alignment -> {Center, Center}, ImageSize -> 
+                  Dynamic[{
+                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                    AbsoluteCurrentValue[Magnification]}]], 
+                 GraphicsBox[{{}, {}, {
+                    GrayLevel[0.55], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[1.], 
+                    
+                    LineBox[{{9.09090909090909*^-8, 9.090909090884856*^-8}, {
+                    0.0874367476365131, 0.08197166587636243}, {
+                    0.18222810297558026`, 0.1358255024317191}, {
+                    0.27073779576926765`, 0.13315455086535802`}, {
+                    0.3575112797365835, 0.08143316377978886}, {
+                    0.4516394623155443, -0.007347854733426912}, {
+                    0.5394859823491253, -0.08816932746972758}, {
+                    0.6346872009943513, -0.13787329990112937`}, {
+                    0.7281522108132057, -0.12816574147938434`}, {
+                    0.8153355580866803, -0.07001063326902106}, {
+                    0.9098736039718, 0.02121659675083076}, {
+                    0.9999999090909091, 0.10024804094746914`}}]}, {
+                    GrayLevel[0.55], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[1.], 
+                    
+                    LineBox[{{9.09090909090909*^-8, 9.090909090880112*^-8}, {
+                    0.0874367476365131, 0.08090369567458766}, {
+                    0.18222810297558026`, 0.12746559200130417`}, {
+                    0.27073779576926765`, 0.1116266937044405}, {
+                    0.3575112797365835, 0.046963725126600256`}, {
+                    0.4516394623155443, -0.04509050859182233}, {
+                    0.5394859823491253, -0.11115559892361665`}, {
+                    0.6346872009943513, -0.12642564594664163`}, {
+                    0.7281522108132057, -0.07740196037964171}, {
+                    0.8153355580866803, 0.004179083230780074}, {
+                    0.9098736039718, 0.08937493944143977}, {
+                    0.9999999090909091, 0.12834702174618903`}}]}, {
+                    GrayLevel[0.55], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[1.], 
+                    
+                    LineBox[{{9.09090909090909*^-8, 9.090909090875369*^-8}, {
+                    0.0874367476365131, 0.07984396759533968}, {
+                    0.18222810297558026`, 0.11939549826670079`}, {
+                    0.27073779576926765`, 0.09184904274707059}, {
+                    0.3575112797365835, 0.017913117173780694`}, {
+                    0.4516394623155443, -0.07109962300031061}, {
+                    0.5394859823491253, -0.11717052830989395`}, {
+                    0.6346872009943513, -0.09879571259704382}, {
+                    0.7281522108132057, -0.022693471356141894`}, {
+                    0.8153355580866803, 0.06128703302641453}, {
+                    0.9098736039718, 0.11605625481609519`}, {
+                    0.9999999090909091, 0.10415981267620744`}}]}, {
+                    GrayLevel[0.55], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[1.], 
+                    
+                    LineBox[{{9.09090909090909*^-8, 9.090909090870287*^-8}, {
+                    0.0874367476365131, 0.07879243663407876}, {
+                    0.18222810297558026`, 0.1116081822210312}, {
+                    0.27073779576926765`, 0.07372482040530459}, {
+                    0.3575112797365835, -0.006267252216927747}, {
+                    0.4516394623155443, -0.08743897872291118}, {
+                    0.5394859823491253, -0.11109134853087661`}, {
+                    0.6346872009943513, -0.06371549528296311}, {
+                    0.7281522108132057, 0.02544576624054603}, {
+                    0.8153355580866803, 0.09464282937855747}, {
+                    0.9098736039718, 0.10731931496853601`}, {
+                    0.9999999090909091, 0.0516787429232188}}]}, {
+                    GrayLevel[0.55], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[1.], 
+                    
+                    LineBox[{{9.09090909090909*^-8, 9.090909090865543*^-8}, {
+                    0.0874367476365131, 0.07774905743802465}, {
+                    0.18222810297558026`, 0.10409673959866513`}, {
+                    0.27073779576926765`, 0.05716133039337165}, {
+                    0.3575112797365835, -0.026084496726167965`}, {
+                    0.4516394623155443, -0.09591154799603378}, {
+                    0.5394859823491253, -0.09685594593277226}, {
+                    0.6346872009943513, -0.02730376120671303}, {
+                    0.7281522108132057, 0.061646715198529656`}, {
+                    0.8153355580866803, 0.1046634148537508}, {0.9098736039718,
+                     0.07509702498429204}, {
+                    0.9999999090909091, -0.006536873471333553}}]}, {
+                    GrayLevel[0.55], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[1.], 
+                    
+                    LineBox[{{9.09090909090909*^-8, 9.0909090908608*^-8}, {
+                    0.0874367476365131, 0.07671378556951527}, {
+                    0.18222810297558026`, 0.09685439581479163}, {
+                    0.27073779576926765`, 0.042069810325321415`}, {
+                    0.3575112797365835, -0.042006785469922474`}, {
+                    0.4516394623155443, -0.09808544986431629}, {
+                    0.5394859823491253, -0.07760167026270944}, {
+                    0.6346872009943513, 0.0063643674428021085`}, {
+                    0.7281522108132057, 0.08405712128907425}, {
+                    0.8153355580866803, 0.09555213349985489}, {
+                    0.9098736039718, 0.03202960165577907}, {
+                    0.9999999090909091, -0.054402034659985464`}}]}}, 
+                  AspectRatio -> 1, Axes -> {False, False}, 
+                  AxesLabel -> {None, None}, AxesOrigin -> {0, 0}, Background -> 
+                  GrayLevel[0.93], BaseStyle -> {FontFamily -> "Arial"}, 
+                  DisplayFunction -> Identity, 
+                  Frame -> {{True, True}, {True, True}}, 
+                  FrameLabel -> {{None, None}, {None, None}}, FrameStyle -> 
+                  Directive[
+                    Thickness[Tiny], 
+                    GrayLevel[0.7]], 
+                  FrameTicks -> {{None, None}, {None, None}}, 
+                  GridLines -> {None, None}, GridLinesStyle -> Directive[
+                    GrayLevel[0.5, 0.4]], ImageSize -> {Automatic, 
+                    Dynamic[
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])]}, LabelStyle -> {FontFamily -> "Arial"}, 
+                  Method -> {"ScalingFunctions" -> None}, 
+                  PlotRange -> {All, All}, PlotRangeClipping -> True, 
+                  PlotRangePadding -> {Automatic, Automatic}, 
+                  Ticks -> {Automatic, Automatic}], 
+                 GridBox[{{
+                    RowBox[{
+                    TagBox["\"Expression: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    TagBox["a", HoldForm], "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox["\"Parameters: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    RowBox[{"{", "b", "}"}], "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox["\"Generator: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox["ParametricNDSolveValue", "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox[
+                    "\"Dependent variables: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    RowBox[{"{", "a", "}"}], "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox[
+                    "\"Independent variables: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    RowBox[{"{", "x", "}"}], "SummaryItem"]}]}}, 
+                  GridBoxAlignment -> {
+                   "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
+                  AutoDelete -> False, 
+                  GridBoxItemSize -> {
+                   "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                  GridBoxSpacings -> {
+                   "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
+                  BaseStyle -> {
+                   ShowStringCharacters -> False, NumberMarks -> False, 
+                    PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+               GridBoxAlignment -> {"Rows" -> {{Top}}}, AutoDelete -> False, 
+               GridBoxItemSize -> {
+                "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+               BaselinePosition -> {1, 1}]}, 
+            Dynamic[Typeset`open$$], ImageSize -> Automatic], 
+           BaselinePosition -> Baseline], DynamicModuleValues :> {}], 
+         StyleBox["]", "NonInterpretableSummary"]}]},
+      "CopyTag",
+      DisplayFunction->(#& ),
+      InterpretationFunction->("ParametricFunction[<>]"& )],
+     False,
+     Editable->False,
+     SelectWithContents->True,
+     Selectable->False]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "0", ",", "xMax"}], "}"}], ",", 
+   RowBox[{"PlotRange", "\[Rule]", "All"}]}], "]"}]], "Output",
+ CellChangeTimes->{
+  3.672478564566228*^9, {3.672478606147231*^9, 3.672478667166451*^9}, {
+   3.672478698902519*^9, 3.6724787180995617`*^9}, {3.672478753884426*^9, 
+   3.672478809867818*^9}, {3.672478851327107*^9, 3.672478899675633*^9}, {
+   3.672478977864554*^9, 3.672478985759664*^9}, {3.672479071723324*^9, 
+   3.67247911053302*^9}, {3.672479177735003*^9, 3.672479224271299*^9}, 
+   3.672479256880721*^9, 3.672479290997961*^9, {3.6724793624814243`*^9, 
+   3.6724794086565104`*^9}, 3.6724794518374453`*^9, {3.672479497512567*^9, 
+   3.672479524567082*^9}, {3.672479555578006*^9, 3.672479579714039*^9}, 
+   3.6724796112782993`*^9, {3.672479674655038*^9, 3.672479712521124*^9}, {
+   3.672479901520952*^9, 3.672479922533019*^9}, {3.672479982683342*^9, 
+   3.67248000462409*^9}, 3.6726219347851667`*^9, {3.672621966787816*^9, 
+   3.672621988243335*^9}, {3.6726221594322233`*^9, 3.672622215552055*^9}, {
+   3.672622260012422*^9, 3.6726222880628357`*^9}, {3.672622319307005*^9, 
+   3.672622336763384*^9}, 3.672622438399438*^9, {3.67262250728518*^9, 
+   3.672622561625935*^9}, {3.672622594306779*^9, 3.6726226145390663`*^9}, 
+   3.672622719250169*^9, {3.6726227994940023`*^9, 3.672622832335937*^9}, {
+   3.672622869294305*^9, 3.672622889465013*^9}, {3.672622953720305*^9, 
+   3.672622992701989*^9}, 3.6726230229008303`*^9, 3.6726231258227863`*^9, {
+   3.6726231664030447`*^9, 3.6726231809236603`*^9}, {3.672749084742538*^9, 
+   3.6727491065032167`*^9}, {3.672749241633967*^9, 3.672749296647374*^9}, 
+   3.672749423568376*^9, {3.673238399565144*^9, 3.67323841906352*^9}, {
+   3.673238667134557*^9, 3.673238683661776*^9}, {3.673238750579372*^9, 
+   3.673238760110751*^9}, 3.6732388549171867`*^9, 3.6732424278438683`*^9, 
+   3.673242563366871*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"ReplaceAll", "::", "reps"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\({\\*TagBox[\\(ParametricFunction[\\(\\(1, \
+\\(\\(Internal`Bag[\\(\\(\\*StyleBox[\\\"\\\\\\\"<\\\\\\\"\\\", \
+Rule[ShowStringCharacters, False]] \[InvisibleSpace] 1 \[InvisibleSpace] \
+\\*StyleBox[\\\"\\\\\\\">\\\\\\\"\\\", Rule[ShowStringCharacters, \
+False]]\\)\\)]\\)\\), 0, 1, \\(\\({\\(\\({b$114816}\\)\\), \
+\\(\\(System`Utilities`HashTable[\\(\\(\\*StyleBox[\\\"\\\\\\\"<\\\\\\\"\\\", \
+Rule[ShowStringCharacters, False]] \[InvisibleSpace] 2 \[InvisibleSpace] \
+\\*StyleBox[\\\"\\\\\\\">\\\\\\\"\\\", Rule[ShowStringCharacters, \
+False]]\\)\\)]\\)\\), \\(\\({}\\)\\), \\(\\({}\\)\\), \\(\\({1}\\)\\), \
+\\(\\({Automatic, 0, 0}\\)\\)}\\)\\), \\(\\({NDSolve`base$114823, \
+\\(\\(NDSolve`NDSolveParametricFunction[\\(\\(0, \
+\\(\\({ParametricNDSolveValue, \
+\\(\\(Internal`Bag[\\(\\(\\*StyleBox[\\\"\\\\\\\"<\\\\\\\"\\\", \
+Rule[ShowStringCharacters, False]] \[InvisibleSpace] 2 \[InvisibleSpace] \
+\\*StyleBox[\\\"\\\\\\\">\\\\\\\"\\\", Rule[ShowStringCharacters, \
+False]]\\)\\)]\\)\\), None}\\)\\), \\(\\(\[LeftSkeleton] 6 \
+\[RightSkeleton]\\)\\), \\(\\({}\\)\\), All\\)\\)]\\)\\)}\\)\\)\\)\\)]\\), \
+False, Rule[Editable, False], Rule[SelectWithContents, True]]}\\)\[NoBreak] \
+is neither a list of replacement rules nor a valid dispatch table, and so \
+cannot be used for replacing. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/ReplaceAll/reps\\\", ButtonNote -> \
+\\\"ReplaceAll::reps\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6732425633884497`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Plot", "::", "plln"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Limiting value \[NoBreak]\\!\\(xMax\\)\[NoBreak] in \
+\[NoBreak]\\!\\({x, 0, xMax}\\)\[NoBreak] is not a machine-sized real number. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/plln\\\", \
+ButtonNote -> \\\"Plot::plln\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.673242563447447*^9}],
+
+Cell[BoxData[
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"a", "[", "0.8`", "]"}], "[", "x", "]"}], "/.", 
+     "\[VeryThinSpace]", 
+     TagBox[
+      TemplateBox[{RowBox[{
+          StyleBox[
+           TagBox["ParametricFunction", "SummaryHead"], 
+           "NonInterpretableSummary"], 
+          StyleBox["[", "NonInterpretableSummary"], 
+          DynamicModuleBox[{Typeset`open$$ = False}, 
+           PanelBox[
+            PaneSelectorBox[{False -> GridBox[{{
+                  PaneBox[
+                   ButtonBox[
+                    DynamicBox[
+                    FEPrivate`FrontEndResource[
+                    "FEBitmaps", "SquarePlusIconMedium"]], 
+                    ButtonFunction :> (Typeset`open$$ = True), Appearance -> 
+                    None, Evaluator -> Automatic, Method -> "Preemptive"], 
+                   Alignment -> {Center, Center}, ImageSize -> 
+                   Dynamic[{
+                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                    AbsoluteCurrentValue[Magnification]}]], 
+                  GraphicsBox[{{}, {}, {
+                    GrayLevel[0.55], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[1.], 
+                    
+                    LineBox[{{9.09090909090909*^-8, 9.090909090884856*^-8}, {
+                    0.0874367476365131, 0.08197166587636243}, {
+                    0.18222810297558026`, 0.1358255024317191}, {
+                    0.27073779576926765`, 0.13315455086535802`}, {
+                    0.3575112797365835, 0.08143316377978886}, {
+                    0.4516394623155443, -0.007347854733426912}, {
+                    0.5394859823491253, -0.08816932746972758}, {
+                    0.6346872009943513, -0.13787329990112937`}, {
+                    0.7281522108132057, -0.12816574147938434`}, {
+                    0.8153355580866803, -0.07001063326902106}, {
+                    0.9098736039718, 0.02121659675083076}, {
+                    0.9999999090909091, 0.10024804094746914`}}]}, {
+                    GrayLevel[0.55], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[1.], 
+                    
+                    LineBox[{{9.09090909090909*^-8, 9.090909090880112*^-8}, {
+                    0.0874367476365131, 0.08090369567458766}, {
+                    0.18222810297558026`, 0.12746559200130417`}, {
+                    0.27073779576926765`, 0.1116266937044405}, {
+                    0.3575112797365835, 0.046963725126600256`}, {
+                    0.4516394623155443, -0.04509050859182233}, {
+                    0.5394859823491253, -0.11115559892361665`}, {
+                    0.6346872009943513, -0.12642564594664163`}, {
+                    0.7281522108132057, -0.07740196037964171}, {
+                    0.8153355580866803, 0.004179083230780074}, {
+                    0.9098736039718, 0.08937493944143977}, {
+                    0.9999999090909091, 0.12834702174618903`}}]}, {
+                    GrayLevel[0.55], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[1.], 
+                    
+                    LineBox[{{9.09090909090909*^-8, 9.090909090875369*^-8}, {
+                    0.0874367476365131, 0.07984396759533968}, {
+                    0.18222810297558026`, 0.11939549826670079`}, {
+                    0.27073779576926765`, 0.09184904274707059}, {
+                    0.3575112797365835, 0.017913117173780694`}, {
+                    0.4516394623155443, -0.07109962300031061}, {
+                    0.5394859823491253, -0.11717052830989395`}, {
+                    0.6346872009943513, -0.09879571259704382}, {
+                    0.7281522108132057, -0.022693471356141894`}, {
+                    0.8153355580866803, 0.06128703302641453}, {
+                    0.9098736039718, 0.11605625481609519`}, {
+                    0.9999999090909091, 0.10415981267620744`}}]}, {
+                    GrayLevel[0.55], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[1.], 
+                    
+                    LineBox[{{9.09090909090909*^-8, 9.090909090870287*^-8}, {
+                    0.0874367476365131, 0.07879243663407876}, {
+                    0.18222810297558026`, 0.1116081822210312}, {
+                    0.27073779576926765`, 0.07372482040530459}, {
+                    0.3575112797365835, -0.006267252216927747}, {
+                    0.4516394623155443, -0.08743897872291118}, {
+                    0.5394859823491253, -0.11109134853087661`}, {
+                    0.6346872009943513, -0.06371549528296311}, {
+                    0.7281522108132057, 0.02544576624054603}, {
+                    0.8153355580866803, 0.09464282937855747}, {
+                    0.9098736039718, 0.10731931496853601`}, {
+                    0.9999999090909091, 0.0516787429232188}}]}, {
+                    GrayLevel[0.55], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[1.], 
+                    
+                    LineBox[{{9.09090909090909*^-8, 9.090909090865543*^-8}, {
+                    0.0874367476365131, 0.07774905743802465}, {
+                    0.18222810297558026`, 0.10409673959866513`}, {
+                    0.27073779576926765`, 0.05716133039337165}, {
+                    0.3575112797365835, -0.026084496726167965`}, {
+                    0.4516394623155443, -0.09591154799603378}, {
+                    0.5394859823491253, -0.09685594593277226}, {
+                    0.6346872009943513, -0.02730376120671303}, {
+                    0.7281522108132057, 0.061646715198529656`}, {
+                    0.8153355580866803, 0.1046634148537508}, {0.9098736039718,
+                     0.07509702498429204}, {
+                    0.9999999090909091, -0.006536873471333553}}]}, {
+                    GrayLevel[0.55], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[1.], 
+                    
+                    LineBox[{{9.09090909090909*^-8, 9.0909090908608*^-8}, {
+                    0.0874367476365131, 0.07671378556951527}, {
+                    0.18222810297558026`, 0.09685439581479163}, {
+                    0.27073779576926765`, 0.042069810325321415`}, {
+                    0.3575112797365835, -0.042006785469922474`}, {
+                    0.4516394623155443, -0.09808544986431629}, {
+                    0.5394859823491253, -0.07760167026270944}, {
+                    0.6346872009943513, 0.0063643674428021085`}, {
+                    0.7281522108132057, 0.08405712128907425}, {
+                    0.8153355580866803, 0.09555213349985489}, {
+                    0.9098736039718, 0.03202960165577907}, {
+                    0.9999999090909091, -0.054402034659985464`}}]}}, 
+                   AspectRatio -> 1, Axes -> {False, False}, 
+                   AxesLabel -> {None, None}, AxesOrigin -> {0, 0}, 
+                   Background -> GrayLevel[0.93], 
+                   BaseStyle -> {FontFamily -> "Arial"}, DisplayFunction -> 
+                   Identity, Frame -> {{True, True}, {True, True}}, 
+                   FrameLabel -> {{None, None}, {None, None}}, FrameStyle -> 
+                   Directive[
+                    Thickness[Tiny], 
+                    GrayLevel[0.7]], 
+                   FrameTicks -> {{None, None}, {None, None}}, 
+                   GridLines -> {None, None}, GridLinesStyle -> Directive[
+                    GrayLevel[0.5, 0.4]], ImageSize -> {Automatic, 
+                    Dynamic[
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])]}, LabelStyle -> {FontFamily -> "Arial"}, 
+                   Method -> {"ScalingFunctions" -> None}, 
+                   PlotRange -> {All, All}, PlotRangeClipping -> True, 
+                   PlotRangePadding -> {Automatic, Automatic}, 
+                   Ticks -> {Automatic, Automatic}], 
+                  GridBox[{{
+                    RowBox[{
+                    TagBox["\"Expression: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    TagBox["a", HoldForm], "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox["\"Parameters: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    RowBox[{"{", "b", "}"}], "SummaryItem"]}]}}, 
+                   GridBoxAlignment -> {
+                    "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
+                   AutoDelete -> False, 
+                   GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                   GridBoxSpacings -> {
+                    "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
+                   BaseStyle -> {
+                    ShowStringCharacters -> False, NumberMarks -> False, 
+                    PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+                GridBoxAlignment -> {"Rows" -> {{Top}}}, AutoDelete -> False, 
+                GridBoxItemSize -> {
+                 "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                BaselinePosition -> {1, 1}], True -> GridBox[{{
+                  PaneBox[
+                   ButtonBox[
+                    DynamicBox[
+                    FEPrivate`FrontEndResource[
+                    "FEBitmaps", "SquareMinusIconMedium"]], 
+                    ButtonFunction :> (Typeset`open$$ = False), Appearance -> 
+                    None, Evaluator -> Automatic, Method -> "Preemptive"], 
+                   Alignment -> {Center, Center}, ImageSize -> 
+                   Dynamic[{
+                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                    AbsoluteCurrentValue[Magnification]}]], 
+                  GraphicsBox[{{}, {}, {
+                    GrayLevel[0.55], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[1.], 
+                    
+                    LineBox[{{9.09090909090909*^-8, 9.090909090884856*^-8}, {
+                    0.0874367476365131, 0.08197166587636243}, {
+                    0.18222810297558026`, 0.1358255024317191}, {
+                    0.27073779576926765`, 0.13315455086535802`}, {
+                    0.3575112797365835, 0.08143316377978886}, {
+                    0.4516394623155443, -0.007347854733426912}, {
+                    0.5394859823491253, -0.08816932746972758}, {
+                    0.6346872009943513, -0.13787329990112937`}, {
+                    0.7281522108132057, -0.12816574147938434`}, {
+                    0.8153355580866803, -0.07001063326902106}, {
+                    0.9098736039718, 0.02121659675083076}, {
+                    0.9999999090909091, 0.10024804094746914`}}]}, {
+                    GrayLevel[0.55], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[1.], 
+                    
+                    LineBox[{{9.09090909090909*^-8, 9.090909090880112*^-8}, {
+                    0.0874367476365131, 0.08090369567458766}, {
+                    0.18222810297558026`, 0.12746559200130417`}, {
+                    0.27073779576926765`, 0.1116266937044405}, {
+                    0.3575112797365835, 0.046963725126600256`}, {
+                    0.4516394623155443, -0.04509050859182233}, {
+                    0.5394859823491253, -0.11115559892361665`}, {
+                    0.6346872009943513, -0.12642564594664163`}, {
+                    0.7281522108132057, -0.07740196037964171}, {
+                    0.8153355580866803, 0.004179083230780074}, {
+                    0.9098736039718, 0.08937493944143977}, {
+                    0.9999999090909091, 0.12834702174618903`}}]}, {
+                    GrayLevel[0.55], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[1.], 
+                    
+                    LineBox[{{9.09090909090909*^-8, 9.090909090875369*^-8}, {
+                    0.0874367476365131, 0.07984396759533968}, {
+                    0.18222810297558026`, 0.11939549826670079`}, {
+                    0.27073779576926765`, 0.09184904274707059}, {
+                    0.3575112797365835, 0.017913117173780694`}, {
+                    0.4516394623155443, -0.07109962300031061}, {
+                    0.5394859823491253, -0.11717052830989395`}, {
+                    0.6346872009943513, -0.09879571259704382}, {
+                    0.7281522108132057, -0.022693471356141894`}, {
+                    0.8153355580866803, 0.06128703302641453}, {
+                    0.9098736039718, 0.11605625481609519`}, {
+                    0.9999999090909091, 0.10415981267620744`}}]}, {
+                    GrayLevel[0.55], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[1.], 
+                    
+                    LineBox[{{9.09090909090909*^-8, 9.090909090870287*^-8}, {
+                    0.0874367476365131, 0.07879243663407876}, {
+                    0.18222810297558026`, 0.1116081822210312}, {
+                    0.27073779576926765`, 0.07372482040530459}, {
+                    0.3575112797365835, -0.006267252216927747}, {
+                    0.4516394623155443, -0.08743897872291118}, {
+                    0.5394859823491253, -0.11109134853087661`}, {
+                    0.6346872009943513, -0.06371549528296311}, {
+                    0.7281522108132057, 0.02544576624054603}, {
+                    0.8153355580866803, 0.09464282937855747}, {
+                    0.9098736039718, 0.10731931496853601`}, {
+                    0.9999999090909091, 0.0516787429232188}}]}, {
+                    GrayLevel[0.55], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[1.], 
+                    
+                    LineBox[{{9.09090909090909*^-8, 9.090909090865543*^-8}, {
+                    0.0874367476365131, 0.07774905743802465}, {
+                    0.18222810297558026`, 0.10409673959866513`}, {
+                    0.27073779576926765`, 0.05716133039337165}, {
+                    0.3575112797365835, -0.026084496726167965`}, {
+                    0.4516394623155443, -0.09591154799603378}, {
+                    0.5394859823491253, -0.09685594593277226}, {
+                    0.6346872009943513, -0.02730376120671303}, {
+                    0.7281522108132057, 0.061646715198529656`}, {
+                    0.8153355580866803, 0.1046634148537508}, {0.9098736039718,
+                     0.07509702498429204}, {
+                    0.9999999090909091, -0.006536873471333553}}]}, {
+                    GrayLevel[0.55], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[1.], 
+                    
+                    LineBox[{{9.09090909090909*^-8, 9.0909090908608*^-8}, {
+                    0.0874367476365131, 0.07671378556951527}, {
+                    0.18222810297558026`, 0.09685439581479163}, {
+                    0.27073779576926765`, 0.042069810325321415`}, {
+                    0.3575112797365835, -0.042006785469922474`}, {
+                    0.4516394623155443, -0.09808544986431629}, {
+                    0.5394859823491253, -0.07760167026270944}, {
+                    0.6346872009943513, 0.0063643674428021085`}, {
+                    0.7281522108132057, 0.08405712128907425}, {
+                    0.8153355580866803, 0.09555213349985489}, {
+                    0.9098736039718, 0.03202960165577907}, {
+                    0.9999999090909091, -0.054402034659985464`}}]}}, 
+                   AspectRatio -> 1, Axes -> {False, False}, 
+                   AxesLabel -> {None, None}, AxesOrigin -> {0, 0}, 
+                   Background -> GrayLevel[0.93], 
+                   BaseStyle -> {FontFamily -> "Arial"}, DisplayFunction -> 
+                   Identity, Frame -> {{True, True}, {True, True}}, 
+                   FrameLabel -> {{None, None}, {None, None}}, FrameStyle -> 
+                   Directive[
+                    Thickness[Tiny], 
+                    GrayLevel[0.7]], 
+                   FrameTicks -> {{None, None}, {None, None}}, 
+                   GridLines -> {None, None}, GridLinesStyle -> Directive[
+                    GrayLevel[0.5, 0.4]], ImageSize -> {Automatic, 
+                    Dynamic[
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])]}, LabelStyle -> {FontFamily -> "Arial"}, 
+                   Method -> {"ScalingFunctions" -> None}, 
+                   PlotRange -> {All, All}, PlotRangeClipping -> True, 
+                   PlotRangePadding -> {Automatic, Automatic}, 
+                   Ticks -> {Automatic, Automatic}], 
+                  GridBox[{{
+                    RowBox[{
+                    TagBox["\"Expression: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    TagBox["a", HoldForm], "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox["\"Parameters: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    RowBox[{"{", "b", "}"}], "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox["\"Generator: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox["ParametricNDSolveValue", "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox[
+                    "\"Dependent variables: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    RowBox[{"{", "a", "}"}], "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox[
+                    "\"Independent variables: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    RowBox[{"{", "x", "}"}], "SummaryItem"]}]}}, 
+                   GridBoxAlignment -> {
+                    "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
+                   AutoDelete -> False, 
+                   GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                   GridBoxSpacings -> {
+                    "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
+                   BaseStyle -> {
+                    ShowStringCharacters -> False, NumberMarks -> False, 
+                    PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+                GridBoxAlignment -> {"Rows" -> {{Top}}}, AutoDelete -> False, 
+                GridBoxItemSize -> {
+                 "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                BaselinePosition -> {1, 1}]}, 
+             Dynamic[Typeset`open$$], ImageSize -> Automatic], 
+            BaselinePosition -> Baseline], DynamicModuleValues :> {}], 
+          StyleBox["]", "NonInterpretableSummary"]}]},
+       "CopyTag",
+       DisplayFunction->(#& ),
+       InterpretationFunction->("ParametricFunction[<>]"& )],
+      False,
+      Editable->False,
+      SelectWithContents->True,
+      Selectable->False]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "0", ",", "xMax"}], "}"}], ",", 
+   RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
+   RowBox[{"AspectRatio", "\[Rule]", 
+    FractionBox["1", "GoldenRatio"]}]}], "]"}]], "Output",
+ CellChangeTimes->{
+  3.672478564566228*^9, {3.672478606147231*^9, 3.672478667166451*^9}, {
+   3.672478698902519*^9, 3.6724787180995617`*^9}, {3.672478753884426*^9, 
+   3.672478809867818*^9}, {3.672478851327107*^9, 3.672478899675633*^9}, {
+   3.672478977864554*^9, 3.672478985759664*^9}, {3.672479071723324*^9, 
+   3.67247911053302*^9}, {3.672479177735003*^9, 3.672479224271299*^9}, 
+   3.672479256880721*^9, 3.672479290997961*^9, {3.6724793624814243`*^9, 
+   3.6724794086565104`*^9}, 3.6724794518374453`*^9, {3.672479497512567*^9, 
+   3.672479524567082*^9}, {3.672479555578006*^9, 3.672479579714039*^9}, 
+   3.6724796112782993`*^9, {3.672479674655038*^9, 3.672479712521124*^9}, {
+   3.672479901520952*^9, 3.672479922533019*^9}, {3.672479982683342*^9, 
+   3.67248000462409*^9}, 3.6726219347851667`*^9, {3.672621966787816*^9, 
+   3.672621988243335*^9}, {3.6726221594322233`*^9, 3.672622215552055*^9}, {
+   3.672622260012422*^9, 3.6726222880628357`*^9}, {3.672622319307005*^9, 
+   3.672622336763384*^9}, 3.672622438399438*^9, {3.67262250728518*^9, 
+   3.672622561625935*^9}, {3.672622594306779*^9, 3.6726226145390663`*^9}, 
+   3.672622719250169*^9, {3.6726227994940023`*^9, 3.672622832335937*^9}, {
+   3.672622869294305*^9, 3.672622889465013*^9}, {3.672622953720305*^9, 
+   3.672622992701989*^9}, 3.6726230229008303`*^9, 3.6726231258227863`*^9, {
+   3.6726231664030447`*^9, 3.6726231809236603`*^9}, {3.672749084742538*^9, 
+   3.6727491065032167`*^9}, {3.672749241633967*^9, 3.672749296647374*^9}, 
+   3.672749423568376*^9, {3.673238399565144*^9, 3.67323841906352*^9}, {
+   3.673238667134557*^9, 3.673238683661776*^9}, {3.673238750579372*^9, 
+   3.673238760110751*^9}, 3.6732388549171867`*^9, 3.6732424278438683`*^9, 
+   3.6732425634650917`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"ReplaceAll", "::", "reps"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\({\\*TagBox[\\(ParametricFunction[\\(\\(1, \
+\\(\\(Internal`Bag[\\(\\(\\*StyleBox[\\\"\\\\\\\"<\\\\\\\"\\\", \
+Rule[ShowStringCharacters, False]] \[InvisibleSpace] 1 \[InvisibleSpace] \
+\\*StyleBox[\\\"\\\\\\\">\\\\\\\"\\\", Rule[ShowStringCharacters, \
+False]]\\)\\)]\\)\\), 0, 1, \\(\\({\\(\\({b$114816}\\)\\), \
+\\(\\(System`Utilities`HashTable[\\(\\(\\*StyleBox[\\\"\\\\\\\"<\\\\\\\"\\\", \
+Rule[ShowStringCharacters, False]] \[InvisibleSpace] 2 \[InvisibleSpace] \
+\\*StyleBox[\\\"\\\\\\\">\\\\\\\"\\\", Rule[ShowStringCharacters, \
+False]]\\)\\)]\\)\\), \\(\\({}\\)\\), \\(\\({}\\)\\), \\(\\({1}\\)\\), \
+\\(\\({Automatic, 0, 0}\\)\\)}\\)\\), \\(\\({NDSolve`base$114823, \
+\\(\\(NDSolve`NDSolveParametricFunction[\\(\\(0, \
+\\(\\({ParametricNDSolveValue, \
+\\(\\(Internal`Bag[\\(\\(\\*StyleBox[\\\"\\\\\\\"<\\\\\\\"\\\", \
+Rule[ShowStringCharacters, False]] \[InvisibleSpace] 2 \[InvisibleSpace] \
+\\*StyleBox[\\\"\\\\\\\">\\\\\\\"\\\", Rule[ShowStringCharacters, \
+False]]\\)\\)]\\)\\), None}\\)\\), \\(\\(\[LeftSkeleton] 6 \
+\[RightSkeleton]\\)\\), \\(\\({}\\)\\), All\\)\\)]\\)\\)}\\)\\)\\)\\)]\\), \
+False, Rule[Editable, False], Rule[SelectWithContents, True]]}\\)\[NoBreak] \
+is neither a list of replacement rules nor a valid dispatch table, and so \
+cannot be used for replacing. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/ReplaceAll/reps\\\", ButtonNote -> \
+\\\"ReplaceAll::reps\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6732425634865847`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"ReplaceAll", "::", "argx"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\(ReplaceAll\\)\[NoBreak] called with \
+\[NoBreak]\\!\\(2\\)\[NoBreak] arguments; 1 argument is expected. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/argx\\\", \
+ButtonNote -> \\\"ReplaceAll::argx\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.673242563524294*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "partd"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Part specification \
+\[NoBreak]\\!\\(\\(\\(\\(\\((\\(\\(a[0.8`]\\)\\)/.\[VeryThinSpace] \\*TagBox[\
+\\(ParametricFunction[\\(\\(1, \
+\\(\\(Internal`Bag[\\(\\(\\*StyleBox[\\\"\\\\\\\"<\\\\\\\"\\\", \
+Rule[ShowStringCharacters, False]] \[InvisibleSpace] 1 \[InvisibleSpace] \
+\\*StyleBox[\\\"\\\\\\\">\\\\\\\"\\\", Rule[ShowStringCharacters, \
+False]]\\)\\)]\\)\\), 0, 1, \\(\\({\\(\\({b$114816}\\)\\), \
+\\(\\(System`Utilities`HashTable[\\(\\(\\*StyleBox[\\\"\\\\\\\"<\\\\\\\"\\\", \
+Rule[ShowStringCharacters, False]] \[InvisibleSpace] 2 \[InvisibleSpace] \
+\\*StyleBox[\\\"\\\\\\\">\\\\\\\"\\\", Rule[ShowStringCharacters, \
+False]]\\)\\)]\\)\\), \\(\\({}\\)\\), \\(\\({}\\)\\), \\(\\({1}\\)\\), \
+\\(\\({Automatic, 0, 0}\\)\\)}\\)\\), \\(\\({NDSolve`base$114823, \\(\\(\
+\[LeftSkeleton] 1 \[RightSkeleton]\\)\\)}\\)\\)\\)\\)]\\), False, \
+Rule[Editable, False], Rule[SelectWithContents, True]])\\)\\)[\\\"Domain\\\"]\
+\\)\\) \[LeftDoubleBracket] \\(\\(1, 2\\)\\) \[RightDoubleBracket]\\)\
+\[NoBreak] is longer than depth of object. \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/partd\\\", ButtonNote -> \
+\\\"Part::partd\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.673242563566451*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"a", "[", "0.8`", "]"}], "/.", "\[VeryThinSpace]", 
+     TagBox[
+      TemplateBox[{RowBox[{
+          StyleBox[
+           TagBox["ParametricFunction", "SummaryHead"], 
+           "NonInterpretableSummary"], 
+          StyleBox["[", "NonInterpretableSummary"], 
+          DynamicModuleBox[{Typeset`open$$ = False}, 
+           PanelBox[
+            PaneSelectorBox[{False -> GridBox[{{
+                  PaneBox[
+                   ButtonBox[
+                    DynamicBox[
+                    FEPrivate`FrontEndResource[
+                    "FEBitmaps", "SquarePlusIconMedium"]], 
+                    ButtonFunction :> (Typeset`open$$ = True), Appearance -> 
+                    None, Evaluator -> Automatic, Method -> "Preemptive"], 
+                   Alignment -> {Center, Center}, ImageSize -> 
+                   Dynamic[{
+                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                    AbsoluteCurrentValue[Magnification]}]], 
+                  GraphicsBox[{{}, {}, {
+                    GrayLevel[0.55], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[1.], 
+                    
+                    LineBox[{{9.09090909090909*^-8, 9.090909090884856*^-8}, {
+                    0.0874367476365131, 0.08197166587636243}, {
+                    0.18222810297558026`, 0.1358255024317191}, {
+                    0.27073779576926765`, 0.13315455086535802`}, {
+                    0.3575112797365835, 0.08143316377978886}, {
+                    0.4516394623155443, -0.007347854733426912}, {
+                    0.5394859823491253, -0.08816932746972758}, {
+                    0.6346872009943513, -0.13787329990112937`}, {
+                    0.7281522108132057, -0.12816574147938434`}, {
+                    0.8153355580866803, -0.07001063326902106}, {
+                    0.9098736039718, 0.02121659675083076}, {
+                    0.9999999090909091, 0.10024804094746914`}}]}, {
+                    GrayLevel[0.55], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[1.], 
+                    
+                    LineBox[{{9.09090909090909*^-8, 9.090909090880112*^-8}, {
+                    0.0874367476365131, 0.08090369567458766}, {
+                    0.18222810297558026`, 0.12746559200130417`}, {
+                    0.27073779576926765`, 0.1116266937044405}, {
+                    0.3575112797365835, 0.046963725126600256`}, {
+                    0.4516394623155443, -0.04509050859182233}, {
+                    0.5394859823491253, -0.11115559892361665`}, {
+                    0.6346872009943513, -0.12642564594664163`}, {
+                    0.7281522108132057, -0.07740196037964171}, {
+                    0.8153355580866803, 0.004179083230780074}, {
+                    0.9098736039718, 0.08937493944143977}, {
+                    0.9999999090909091, 0.12834702174618903`}}]}, {
+                    GrayLevel[0.55], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[1.], 
+                    
+                    LineBox[{{9.09090909090909*^-8, 9.090909090875369*^-8}, {
+                    0.0874367476365131, 0.07984396759533968}, {
+                    0.18222810297558026`, 0.11939549826670079`}, {
+                    0.27073779576926765`, 0.09184904274707059}, {
+                    0.3575112797365835, 0.017913117173780694`}, {
+                    0.4516394623155443, -0.07109962300031061}, {
+                    0.5394859823491253, -0.11717052830989395`}, {
+                    0.6346872009943513, -0.09879571259704382}, {
+                    0.7281522108132057, -0.022693471356141894`}, {
+                    0.8153355580866803, 0.06128703302641453}, {
+                    0.9098736039718, 0.11605625481609519`}, {
+                    0.9999999090909091, 0.10415981267620744`}}]}, {
+                    GrayLevel[0.55], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[1.], 
+                    
+                    LineBox[{{9.09090909090909*^-8, 9.090909090870287*^-8}, {
+                    0.0874367476365131, 0.07879243663407876}, {
+                    0.18222810297558026`, 0.1116081822210312}, {
+                    0.27073779576926765`, 0.07372482040530459}, {
+                    0.3575112797365835, -0.006267252216927747}, {
+                    0.4516394623155443, -0.08743897872291118}, {
+                    0.5394859823491253, -0.11109134853087661`}, {
+                    0.6346872009943513, -0.06371549528296311}, {
+                    0.7281522108132057, 0.02544576624054603}, {
+                    0.8153355580866803, 0.09464282937855747}, {
+                    0.9098736039718, 0.10731931496853601`}, {
+                    0.9999999090909091, 0.0516787429232188}}]}, {
+                    GrayLevel[0.55], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[1.], 
+                    
+                    LineBox[{{9.09090909090909*^-8, 9.090909090865543*^-8}, {
+                    0.0874367476365131, 0.07774905743802465}, {
+                    0.18222810297558026`, 0.10409673959866513`}, {
+                    0.27073779576926765`, 0.05716133039337165}, {
+                    0.3575112797365835, -0.026084496726167965`}, {
+                    0.4516394623155443, -0.09591154799603378}, {
+                    0.5394859823491253, -0.09685594593277226}, {
+                    0.6346872009943513, -0.02730376120671303}, {
+                    0.7281522108132057, 0.061646715198529656`}, {
+                    0.8153355580866803, 0.1046634148537508}, {0.9098736039718,
+                     0.07509702498429204}, {
+                    0.9999999090909091, -0.006536873471333553}}]}, {
+                    GrayLevel[0.55], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[1.], 
+                    
+                    LineBox[{{9.09090909090909*^-8, 9.0909090908608*^-8}, {
+                    0.0874367476365131, 0.07671378556951527}, {
+                    0.18222810297558026`, 0.09685439581479163}, {
+                    0.27073779576926765`, 0.042069810325321415`}, {
+                    0.3575112797365835, -0.042006785469922474`}, {
+                    0.4516394623155443, -0.09808544986431629}, {
+                    0.5394859823491253, -0.07760167026270944}, {
+                    0.6346872009943513, 0.0063643674428021085`}, {
+                    0.7281522108132057, 0.08405712128907425}, {
+                    0.8153355580866803, 0.09555213349985489}, {
+                    0.9098736039718, 0.03202960165577907}, {
+                    0.9999999090909091, -0.054402034659985464`}}]}}, 
+                   AspectRatio -> 1, Axes -> {False, False}, 
+                   AxesLabel -> {None, None}, AxesOrigin -> {0, 0}, 
+                   Background -> GrayLevel[0.93], 
+                   BaseStyle -> {FontFamily -> "Arial"}, DisplayFunction -> 
+                   Identity, Frame -> {{True, True}, {True, True}}, 
+                   FrameLabel -> {{None, None}, {None, None}}, FrameStyle -> 
+                   Directive[
+                    Thickness[Tiny], 
+                    GrayLevel[0.7]], 
+                   FrameTicks -> {{None, None}, {None, None}}, 
+                   GridLines -> {None, None}, GridLinesStyle -> Directive[
+                    GrayLevel[0.5, 0.4]], ImageSize -> {Automatic, 
+                    Dynamic[
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])]}, LabelStyle -> {FontFamily -> "Arial"}, 
+                   Method -> {"ScalingFunctions" -> None}, 
+                   PlotRange -> {All, All}, PlotRangeClipping -> True, 
+                   PlotRangePadding -> {Automatic, Automatic}, 
+                   Ticks -> {Automatic, Automatic}], 
+                  GridBox[{{
+                    RowBox[{
+                    TagBox["\"Expression: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    TagBox["a", HoldForm], "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox["\"Parameters: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    RowBox[{"{", "b", "}"}], "SummaryItem"]}]}}, 
+                   GridBoxAlignment -> {
+                    "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
+                   AutoDelete -> False, 
+                   GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                   GridBoxSpacings -> {
+                    "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
+                   BaseStyle -> {
+                    ShowStringCharacters -> False, NumberMarks -> False, 
+                    PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+                GridBoxAlignment -> {"Rows" -> {{Top}}}, AutoDelete -> False, 
+                GridBoxItemSize -> {
+                 "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                BaselinePosition -> {1, 1}], True -> GridBox[{{
+                  PaneBox[
+                   ButtonBox[
+                    DynamicBox[
+                    FEPrivate`FrontEndResource[
+                    "FEBitmaps", "SquareMinusIconMedium"]], 
+                    ButtonFunction :> (Typeset`open$$ = False), Appearance -> 
+                    None, Evaluator -> Automatic, Method -> "Preemptive"], 
+                   Alignment -> {Center, Center}, ImageSize -> 
+                   Dynamic[{
+                    Automatic, 3.5 CurrentValue["FontCapHeight"]/
+                    AbsoluteCurrentValue[Magnification]}]], 
+                  GraphicsBox[{{}, {}, {
+                    GrayLevel[0.55], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[1.], 
+                    
+                    LineBox[{{9.09090909090909*^-8, 9.090909090884856*^-8}, {
+                    0.0874367476365131, 0.08197166587636243}, {
+                    0.18222810297558026`, 0.1358255024317191}, {
+                    0.27073779576926765`, 0.13315455086535802`}, {
+                    0.3575112797365835, 0.08143316377978886}, {
+                    0.4516394623155443, -0.007347854733426912}, {
+                    0.5394859823491253, -0.08816932746972758}, {
+                    0.6346872009943513, -0.13787329990112937`}, {
+                    0.7281522108132057, -0.12816574147938434`}, {
+                    0.8153355580866803, -0.07001063326902106}, {
+                    0.9098736039718, 0.02121659675083076}, {
+                    0.9999999090909091, 0.10024804094746914`}}]}, {
+                    GrayLevel[0.55], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[1.], 
+                    
+                    LineBox[{{9.09090909090909*^-8, 9.090909090880112*^-8}, {
+                    0.0874367476365131, 0.08090369567458766}, {
+                    0.18222810297558026`, 0.12746559200130417`}, {
+                    0.27073779576926765`, 0.1116266937044405}, {
+                    0.3575112797365835, 0.046963725126600256`}, {
+                    0.4516394623155443, -0.04509050859182233}, {
+                    0.5394859823491253, -0.11115559892361665`}, {
+                    0.6346872009943513, -0.12642564594664163`}, {
+                    0.7281522108132057, -0.07740196037964171}, {
+                    0.8153355580866803, 0.004179083230780074}, {
+                    0.9098736039718, 0.08937493944143977}, {
+                    0.9999999090909091, 0.12834702174618903`}}]}, {
+                    GrayLevel[0.55], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[1.], 
+                    
+                    LineBox[{{9.09090909090909*^-8, 9.090909090875369*^-8}, {
+                    0.0874367476365131, 0.07984396759533968}, {
+                    0.18222810297558026`, 0.11939549826670079`}, {
+                    0.27073779576926765`, 0.09184904274707059}, {
+                    0.3575112797365835, 0.017913117173780694`}, {
+                    0.4516394623155443, -0.07109962300031061}, {
+                    0.5394859823491253, -0.11717052830989395`}, {
+                    0.6346872009943513, -0.09879571259704382}, {
+                    0.7281522108132057, -0.022693471356141894`}, {
+                    0.8153355580866803, 0.06128703302641453}, {
+                    0.9098736039718, 0.11605625481609519`}, {
+                    0.9999999090909091, 0.10415981267620744`}}]}, {
+                    GrayLevel[0.55], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[1.], 
+                    
+                    LineBox[{{9.09090909090909*^-8, 9.090909090870287*^-8}, {
+                    0.0874367476365131, 0.07879243663407876}, {
+                    0.18222810297558026`, 0.1116081822210312}, {
+                    0.27073779576926765`, 0.07372482040530459}, {
+                    0.3575112797365835, -0.006267252216927747}, {
+                    0.4516394623155443, -0.08743897872291118}, {
+                    0.5394859823491253, -0.11109134853087661`}, {
+                    0.6346872009943513, -0.06371549528296311}, {
+                    0.7281522108132057, 0.02544576624054603}, {
+                    0.8153355580866803, 0.09464282937855747}, {
+                    0.9098736039718, 0.10731931496853601`}, {
+                    0.9999999090909091, 0.0516787429232188}}]}, {
+                    GrayLevel[0.55], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[1.], 
+                    
+                    LineBox[{{9.09090909090909*^-8, 9.090909090865543*^-8}, {
+                    0.0874367476365131, 0.07774905743802465}, {
+                    0.18222810297558026`, 0.10409673959866513`}, {
+                    0.27073779576926765`, 0.05716133039337165}, {
+                    0.3575112797365835, -0.026084496726167965`}, {
+                    0.4516394623155443, -0.09591154799603378}, {
+                    0.5394859823491253, -0.09685594593277226}, {
+                    0.6346872009943513, -0.02730376120671303}, {
+                    0.7281522108132057, 0.061646715198529656`}, {
+                    0.8153355580866803, 0.1046634148537508}, {0.9098736039718,
+                     0.07509702498429204}, {
+                    0.9999999090909091, -0.006536873471333553}}]}, {
+                    GrayLevel[0.55], 
+                    AbsoluteThickness[1.5], 
+                    Opacity[1.], 
+                    
+                    LineBox[{{9.09090909090909*^-8, 9.0909090908608*^-8}, {
+                    0.0874367476365131, 0.07671378556951527}, {
+                    0.18222810297558026`, 0.09685439581479163}, {
+                    0.27073779576926765`, 0.042069810325321415`}, {
+                    0.3575112797365835, -0.042006785469922474`}, {
+                    0.4516394623155443, -0.09808544986431629}, {
+                    0.5394859823491253, -0.07760167026270944}, {
+                    0.6346872009943513, 0.0063643674428021085`}, {
+                    0.7281522108132057, 0.08405712128907425}, {
+                    0.8153355580866803, 0.09555213349985489}, {
+                    0.9098736039718, 0.03202960165577907}, {
+                    0.9999999090909091, -0.054402034659985464`}}]}}, 
+                   AspectRatio -> 1, Axes -> {False, False}, 
+                   AxesLabel -> {None, None}, AxesOrigin -> {0, 0}, 
+                   Background -> GrayLevel[0.93], 
+                   BaseStyle -> {FontFamily -> "Arial"}, DisplayFunction -> 
+                   Identity, Frame -> {{True, True}, {True, True}}, 
+                   FrameLabel -> {{None, None}, {None, None}}, FrameStyle -> 
+                   Directive[
+                    Thickness[Tiny], 
+                    GrayLevel[0.7]], 
+                   FrameTicks -> {{None, None}, {None, None}}, 
+                   GridLines -> {None, None}, GridLinesStyle -> Directive[
+                    GrayLevel[0.5, 0.4]], ImageSize -> {Automatic, 
+                    Dynamic[
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])]}, LabelStyle -> {FontFamily -> "Arial"}, 
+                   Method -> {"ScalingFunctions" -> None}, 
+                   PlotRange -> {All, All}, PlotRangeClipping -> True, 
+                   PlotRangePadding -> {Automatic, Automatic}, 
+                   Ticks -> {Automatic, Automatic}], 
+                  GridBox[{{
+                    RowBox[{
+                    TagBox["\"Expression: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    TagBox["a", HoldForm], "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox["\"Parameters: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    RowBox[{"{", "b", "}"}], "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox["\"Generator: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox["ParametricNDSolveValue", "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox[
+                    "\"Dependent variables: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    RowBox[{"{", "a", "}"}], "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox[
+                    "\"Independent variables: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    RowBox[{"{", "x", "}"}], "SummaryItem"]}]}}, 
+                   GridBoxAlignment -> {
+                    "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
+                   AutoDelete -> False, 
+                   GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                   GridBoxSpacings -> {
+                    "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
+                   BaseStyle -> {
+                    ShowStringCharacters -> False, NumberMarks -> False, 
+                    PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+                GridBoxAlignment -> {"Rows" -> {{Top}}}, AutoDelete -> False, 
+                GridBoxItemSize -> {
+                 "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                BaselinePosition -> {1, 1}]}, 
+             Dynamic[Typeset`open$$], ImageSize -> Automatic], 
+            BaselinePosition -> Baseline], DynamicModuleValues :> {}], 
+          StyleBox["]", "NonInterpretableSummary"]}]},
+       "CopyTag",
+       DisplayFunction->(#& ),
+       InterpretationFunction->("ParametricFunction[<>]"& )],
+      False,
+      Editable->False,
+      SelectWithContents->True,
+      Selectable->False]}], ")"}], "[", "\<\"Domain\"\>", "]"}], 
+  "\[LeftDoubleBracket]", 
+  RowBox[{"1", ",", "2"}], "\[RightDoubleBracket]"}]], "Output",
+ CellChangeTimes->{
+  3.672478564566228*^9, {3.672478606147231*^9, 3.672478667166451*^9}, {
+   3.672478698902519*^9, 3.6724787180995617`*^9}, {3.672478753884426*^9, 
+   3.672478809867818*^9}, {3.672478851327107*^9, 3.672478899675633*^9}, {
+   3.672478977864554*^9, 3.672478985759664*^9}, {3.672479071723324*^9, 
+   3.67247911053302*^9}, {3.672479177735003*^9, 3.672479224271299*^9}, 
+   3.672479256880721*^9, 3.672479290997961*^9, {3.6724793624814243`*^9, 
+   3.6724794086565104`*^9}, 3.6724794518374453`*^9, {3.672479497512567*^9, 
+   3.672479524567082*^9}, {3.672479555578006*^9, 3.672479579714039*^9}, 
+   3.6724796112782993`*^9, {3.672479674655038*^9, 3.672479712521124*^9}, {
+   3.672479901520952*^9, 3.672479922533019*^9}, {3.672479982683342*^9, 
+   3.67248000462409*^9}, 3.6726219347851667`*^9, {3.672621966787816*^9, 
+   3.672621988243335*^9}, {3.6726221594322233`*^9, 3.672622215552055*^9}, {
+   3.672622260012422*^9, 3.6726222880628357`*^9}, {3.672622319307005*^9, 
+   3.672622336763384*^9}, 3.672622438399438*^9, {3.67262250728518*^9, 
+   3.672622561625935*^9}, {3.672622594306779*^9, 3.6726226145390663`*^9}, 
+   3.672622719250169*^9, {3.6726227994940023`*^9, 3.672622832335937*^9}, {
+   3.672622869294305*^9, 3.672622889465013*^9}, {3.672622953720305*^9, 
+   3.672622992701989*^9}, 3.6726230229008303`*^9, 3.6726231258227863`*^9, {
+   3.6726231664030447`*^9, 3.6726231809236603`*^9}, {3.672749084742538*^9, 
+   3.6727491065032167`*^9}, {3.672749241633967*^9, 3.672749296647374*^9}, 
+   3.672749423568376*^9, {3.673238399565144*^9, 3.67323841906352*^9}, {
+   3.673238667134557*^9, 3.673238683661776*^9}, {3.673238750579372*^9, 
+   3.673238760110751*^9}, 3.6732388549171867`*^9, 3.6732424278438683`*^9, 
+   3.6732425635868263`*^9}]
+}, Open  ]]
+},
+WindowSize->{808, 911},
+WindowMargins->{{3, Automatic}, {Automatic, 0}},
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (December 4, \
+2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 7342, 197, 437, "Input"],
+Cell[7925, 221, 19645, 361, 99, "Output"],
+Cell[27573, 584, 1699, 28, 76, "Message"],
+Cell[29275, 614, 505, 10, 24, "Message"],
+Cell[29783, 626, 1697, 28, 76, "Message"],
+Cell[31483, 656, 505, 10, 24, "Message"],
+Cell[31991, 668, 1699, 28, 76, "Message"],
+Cell[33693, 698, 535, 11, 24, "Message"],
+Cell[34231, 711, 507, 10, 24, "Message"],
+Cell[34741, 723, 533, 11, 24, "Message"],
+Cell[35277, 736, 7461, 153, 264, "Output"],
+Cell[42741, 891, 1697, 28, 76, "Message"],
+Cell[44441, 921, 505, 10, 24, "Message"],
+Cell[44949, 933, 1697, 28, 76, "Message"],
+Cell[46649, 963, 505, 10, 24, "Message"],
+Cell[47157, 975, 1697, 28, 76, "Message"],
+Cell[48857, 1005, 535, 11, 24, "Message"],
+Cell[49395, 1018, 505, 10, 24, "Message"],
+Cell[49903, 1030, 535, 11, 24, "Message"],
+Cell[50441, 1043, 2316, 42, 260, "Output"],
+Cell[52760, 1087, 1816, 27, 21, "Print"],
+Cell[54579, 1116, 1699, 28, 76, "Message"],
+Cell[56281, 1146, 505, 10, 24, "Message"],
+Cell[56789, 1158, 1699, 28, 76, "Message"],
+Cell[58491, 1188, 504, 10, 24, "Message"],
+Cell[58998, 1200, 1697, 28, 76, "Message"],
+Cell[60698, 1230, 532, 11, 24, "Message"],
+Cell[61233, 1243, 505, 10, 24, "Message"],
+Cell[61741, 1255, 533, 11, 24, "Message"],
+Cell[62277, 1268, 2253, 41, 361, "Output"],
+Cell[64533, 1311, 1699, 28, 76, "Message"],
+Cell[66235, 1341, 507, 10, 24, "Message"],
+Cell[66745, 1353, 20784, 373, 65, "Output"],
+Cell[87532, 1728, 1699, 28, 76, "Message"],
+Cell[89234, 1758, 505, 10, 24, "Message"],
+Cell[89742, 1770, 20989, 376, 106, "Output"],
+Cell[110734, 2148, 1699, 28, 76, "Message"],
+Cell[112436, 2178, 505, 10, 24, "Message"],
+Cell[112944, 2190, 1410, 24, 42, "Message"],
+Cell[114357, 2216, 20836, 371, 69, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
